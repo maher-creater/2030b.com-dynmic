@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "lang": "zh",
+    "name": "中文",
+    "dir": "ltr",
+    "author": "Maher",
+    "year": "2026"
+  },
+  "common": {
+    "brand": "2030B",
+    "tagline": "入口",
+    "vision_cta": "$1Q 愿景",
+    "browse_all": "浏览全部 25 个部门",
+    "open_registry": "打开登记册",
+    "read_more": "阅读全文",
+    "back_home": "返回入口",
+    "all_departments": "全部二十五个部门",
+    "send_message": "发送消息",
+    "loading": "加载中…",
+    "views_label": "关注此门",
+    "live_views": "实时浏览",
+    "today": "今日",
+    "uniques": "独立访客",
+    "total": "总浏览量",
+    "copyright": "© 2026 Maher · 2030B 为 Maher 版权所有作品。保留所有权利。"
+  },
+  "nav": {
+    "search": "搜索",
+    "account": "您的账号",
+    "language": "语言",
+    "theme": "切换主题",
+    "departments": "部门",
+    "levels": "层级",
+    "audiences": "受众",
+    "project": "项目",
+    "about": "关于 Maher",
+    "contact": "联系",
+    "registry": "登记册"
+  },
+  "home": {
+    "chip": "入口",
+    "h1_a": "二十五个部门",
+    "h1_b": "为即将到来的文明。",
+    "lead": "2030B 是基础登记册——一个协调的部门体系,负责存在、认知、伦理、时间、记忆与生存的关键基础设施。总运营成本:每人每日 17.49 美元。",
+    "stat_depts": "部门",
+    "stat_critical": "关键级",
+    "stat_daily": "每日 / 人",
+    "stat_anchor": "锚点:Al-Ḥaqq",
+    "levels_title": "五个优先级",
+    "levels_lead": "各部门按文明意义排序。关键级部门保护存在本身;标准级与低级部门维护延续与意义。",
+    "twentyfive": "二十五",
+    "twentyfive_lead": "点击任一部门即可阅读其身份卡和官方登记册中的五项任务。",
+    "audiences_title": "选择适合你的门。",
+    "audiences_lead": "2030B 以多种语言服务不同社区。打开属于你的页面。"
+  },
+  "about": {
+    "chip": "创始人",
+    "h1": "Maher。",
+    "lead": "2030B 框架、WebBook 标准与本体论部门的设计者。本作品版权持有人。"
+  },
+  "contact": {
+    "chip": "联系",
+    "h1": "联系 2030B。",
+    "lead": "关于某个部门、WebBook 标准或合作的提议。Maher 会阅读每一条信息。",
+    "name": "您的姓名",
+    "email": "电子邮件",
+    "topic": "主题",
+    "message": "消息",
+    "thanks": "感谢——您的消息已收到。"
+  },
+  "vision": {
+    "chip": "Maher · $1Q 愿景",
+    "h1_a": "2030B 如何抵达首个",
+    "h1_b": "1,000 万亿美元经济。",
+    "quote": "没有什么是不可能的。只有无能的人才不可能。有了 2030B,只有有能力者。",
+    "stage1": "锚定",
+    "stage2": "共同体",
+    "stage3": "信任",
+    "stage4": "千万亿"
+  },
+  "levels": {
+    "Critical": "关键",
+    "High": "高",
+    "Medium": "中",
+    "Standard": "标准",
+    "Low": "低"
+  },
+  "audiences": {
+    "general": "普通",
+    "researchers": "研究者",
+    "policymakers": "政策制定者",
+    "investors": "投资者",
+    "builders": "建设者",
+    "educators": "教育者",
+    "students": "学生",
+    "faith": "信仰",
+    "press": "新闻",
+    "communities": "社区"
+  },
+  "errors": {
+    "404_h1": "404",
+    "404_lead": "此门不在登记册中。"
+  }
+}

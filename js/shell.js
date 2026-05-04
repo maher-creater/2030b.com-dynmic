@@ -27,21 +27,21 @@
 
           <div class="flex items-center gap-1.5 shrink-0">
             <!-- Animated nav-icons (search · account · language · theme) -->
-            <button data-b-aside-toggle="search" class="b-nav-icon" aria-label="Search">
+            <button data-b-aside-toggle="search" class="b-nav-icon" aria-label="Search" data-i18n-aria="nav.search">
               <i data-lucide="search" class="w-4 h-4"></i>
             </button>
-            <button data-b-aside-toggle="user" class="b-nav-icon" aria-label="Your account">
+            <button data-b-aside-toggle="user" class="b-nav-icon" aria-label="Your account" data-i18n-aria="nav.account">
               <i data-lucide="user-round" class="w-4 h-4"></i>
             </button>
-            <button data-b-aside-toggle="lang" class="b-nav-icon" aria-label="Language">
+            <button data-b-aside-toggle="lang" class="b-nav-icon" aria-label="Language" data-i18n-aria="nav.language">
               <i data-lucide="languages" class="w-4 h-4"></i>
             </button>
-            <button data-b-theme-toggle class="b-nav-icon" aria-label="Toggle theme">
+            <button data-b-theme-toggle class="b-nav-icon" aria-label="Toggle theme" data-i18n-aria="nav.theme">
               <i data-lucide="sun-moon" class="w-4 h-4"></i>
             </button>
 
             <a href="${prefix}pages/maher-vision.html" class="b-btn-primary text-sm hidden md:inline-flex ml-1">
-              <i data-lucide="rocket" class="w-4 h-4"></i> $1Q vision
+              <i data-lucide="rocket" class="w-4 h-4"></i> <span data-i18n="common.vision_cta">$1Q vision</span>
             </a>
             <button data-mobile-toggle class="lg:hidden w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-300" aria-label="Menu"><i data-lucide="menu" class="w-5 h-5"></i></button>
           </div>
@@ -51,8 +51,8 @@
         <div id="bMobile" class="hidden lg:hidden mt-2 b-glass rounded-xl p-4">
           <div data-b-megamenu-mobile></div>
           <div class="mt-3 pt-3 border-t border-amber-200/10 flex flex-col gap-1">
-            <a class="block py-1.5 b-navlink" href="${prefix}pages/maher-vision.html">The $1Q vision</a>
-            <a class="block py-1.5 b-navlink" href="${prefix}pages/about.html">About Maher</a>
+            <a class="block py-1.5 b-navlink" href="${prefix}pages/maher-vision.html" data-i18n="common.vision_cta">The $1Q vision</a>
+            <a class="block py-1.5 b-navlink" href="${prefix}pages/about.html" data-i18n="nav.about">About Maher</a>
           </div>
         </div>
       </div>
@@ -63,25 +63,25 @@
 
     <aside class="b-aside" data-b-aside="search" aria-hidden="true">
       <header class="b-aside-head">
-        <h3 class="b-aside-title">Search 2030B</h3>
+        <h3 class="b-aside-title" data-i18n="nav.search">Search 2030B</h3>
         <button class="b-nav-icon" data-b-aside-close aria-label="Close"><i data-lucide="x" class="w-4 h-4"></i></button>
       </header>
       <div class="b-aside-body">
-        <label class="block text-xs uppercase tracking-[0.2em] text-amber-200/55 mb-2">Search</label>
+        <label class="block text-xs uppercase tracking-[0.2em] text-amber-200/55 mb-2" data-i18n="nav.search">Search</label>
         <input type="search" placeholder="Try: ontology, $17.49, planetary defense…" class="w-full px-3 py-2 rounded-lg bg-amber-500/5 border border-amber-200/15 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-300/50">
         <p class="mt-3 text-xs text-amber-100/50">Search runs across all twenty-five department pages and the official Registry.</p>
         <div class="mt-5 grid grid-cols-2 gap-2">
-          <a class="b-aside-action" href="${prefix}pages/registry.html"><i data-lucide="book-marked" class="w-4 h-4"></i> Registry</a>
-          <a class="b-aside-action" href="${prefix}pages/levels.html"><i data-lucide="layers" class="w-4 h-4"></i> Levels</a>
-          <a class="b-aside-action" href="${prefix}pages/departments.html"><i data-lucide="layout-grid" class="w-4 h-4"></i> Departments</a>
-          <a class="b-aside-action" href="${prefix}pages/maher-vision.html"><i data-lucide="rocket" class="w-4 h-4"></i> $1Q vision</a>
+          <a class="b-aside-action" href="${prefix}pages/registry.html"><i data-lucide="book-marked" class="w-4 h-4"></i> <span data-i18n="nav.registry">Registry</span></a>
+          <a class="b-aside-action" href="${prefix}pages/levels.html"><i data-lucide="layers" class="w-4 h-4"></i> <span data-i18n="nav.levels">Levels</span></a>
+          <a class="b-aside-action" href="${prefix}pages/departments.html"><i data-lucide="layout-grid" class="w-4 h-4"></i> <span data-i18n="nav.departments">Departments</span></a>
+          <a class="b-aside-action" href="${prefix}pages/maher-vision.html"><i data-lucide="rocket" class="w-4 h-4"></i> <span data-i18n="common.vision_cta">$1Q vision</span></a>
         </div>
       </div>
     </aside>
 
     <aside class="b-aside" data-b-aside="user" aria-hidden="true">
       <header class="b-aside-head">
-        <h3 class="b-aside-title">Your account</h3>
+        <h3 class="b-aside-title" data-i18n="nav.account">Your account</h3>
         <button class="b-nav-icon" data-b-aside-close aria-label="Close"><i data-lucide="x" class="w-4 h-4"></i></button>
       </header>
       <div class="b-aside-body">
@@ -95,14 +95,14 @@
         <div class="mt-5 grid gap-2">
           <a class="b-aside-action" href="#"><i data-lucide="log-in" class="w-4 h-4"></i> Sign in</a>
           <a class="b-aside-action" href="#"><i data-lucide="user-plus" class="w-4 h-4"></i> Create an account</a>
-          <a class="b-aside-action" href="${prefix}pages/contact.html"><i data-lucide="mail" class="w-4 h-4"></i> Contact the project</a>
+          <a class="b-aside-action" href="${prefix}pages/contact.html"><i data-lucide="mail" class="w-4 h-4"></i> <span data-i18n="nav.contact">Contact the project</span></a>
         </div>
       </div>
     </aside>
 
     <aside class="b-aside" data-b-aside="lang" aria-hidden="true">
       <header class="b-aside-head">
-        <h3 class="b-aside-title">Language</h3>
+        <h3 class="b-aside-title" data-i18n="nav.language">Language</h3>
         <button class="b-nav-icon" data-b-aside-close aria-label="Close"><i data-lucide="x" class="w-4 h-4"></i></button>
       </header>
       <div class="b-aside-body">
@@ -139,16 +139,16 @@
             The public registry of the twenty-five departments responsible for the civilization ahead.
             Total operating cost: $17.49 per human per day.
           </p>
-          <p class="mt-5 text-xs font-mono text-amber-100/50">© 2026 Maher · 2030B is a copyrighted work of Maher.<br>All rights reserved.</p>
+          <p class="mt-5 text-xs font-mono text-amber-100/50" data-i18n="common.copyright">© 2026 Maher · 2030B is a copyrighted work of Maher. All rights reserved.</p>
         </div>
 
         <div>
-          <h4 class="font-semibold text-amber-50 text-sm">Browse</h4>
+          <h4 class="font-semibold text-amber-50 text-sm" data-i18n="nav.departments">Browse</h4>
           <ul class="mt-3 space-y-2 text-sm text-amber-100/65">
-            <li><a class="hover:text-amber-300" href="${link('departments.html')}">All 25 departments</a></li>
-            <li><a class="hover:text-amber-300" href="${link('registry.html')}">Official Registry</a></li>
-            <li><a class="hover:text-amber-300" href="${link('levels.html')}">Five priority levels</a></li>
-            <li><a class="hover:text-amber-300" href="${link('maher-vision.html')}">The $1Q vision</a></li>
+            <li><a class="hover:text-amber-300" href="${link('departments.html')}" data-i18n="common.all_departments">All 25 departments</a></li>
+            <li><a class="hover:text-amber-300" href="${link('registry.html')}" data-i18n="nav.registry">Official Registry</a></li>
+            <li><a class="hover:text-amber-300" href="${link('levels.html')}" data-i18n="home.levels_title">Five priority levels</a></li>
+            <li><a class="hover:text-amber-300" href="${link('maher-vision.html')}" data-i18n="common.vision_cta">The $1Q vision</a></li>
           </ul>
         </div>
 

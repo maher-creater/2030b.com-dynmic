@@ -1,0 +1,30 @@
+# 2030B Views Counter — Apache hardening
+# © 2026 Maher. All rights reserved.
+
+# Force index.php as the only entry point
+DirectoryIndex index.php
+Options -Indexes -MultiViews
+
+# Block direct access to the SQLite database and any backups
+<FilesMatch "\.(sqlite|sqlite-journal|sqlite-wal|sqlite-shm|db|sql|bak|backup|log)$">
+    Require all denied
+</FilesMatch>
+
+# Block dotfiles
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# CORS — preflight handled by index.php as well
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "no-referrer"
+</IfModule>
+
+# Route every non-existent path to index.php so /views_url/ works
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>

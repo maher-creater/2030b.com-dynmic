@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "lang": "fr",
+    "name": "Français",
+    "dir": "ltr",
+    "author": "Maher",
+    "year": "2026"
+  },
+  "common": {
+    "brand": "2030B",
+    "tagline": "Le Point d'Entrée",
+    "vision_cta": "Vision $1Q",
+    "browse_all": "Parcourir les 25 départements",
+    "open_registry": "Ouvrir le Registre",
+    "read_more": "Lire en entier",
+    "back_home": "Retour au point d'entrée",
+    "all_departments": "Les vingt-cinq départements",
+    "send_message": "Envoyer le message",
+    "loading": "Chargement…",
+    "views_label": "Yeux sur cette porte",
+    "live_views": "Vues en direct",
+    "today": "Aujourd'hui",
+    "uniques": "Visiteurs uniques",
+    "total": "Vues totales",
+    "copyright": "© 2026 Maher · 2030B est une œuvre protégée par le droit d'auteur de Maher. Tous droits réservés."
+  },
+  "nav": {
+    "search": "Recherche",
+    "account": "Votre compte",
+    "language": "Langue",
+    "theme": "Basculer le thème",
+    "departments": "Départements",
+    "levels": "Niveaux",
+    "audiences": "Publics",
+    "project": "Projet",
+    "about": "À propos de Maher",
+    "contact": "Contact",
+    "registry": "Registre"
+  },
+  "home": {
+    "chip": "Le Point d'Entrée",
+    "h1_a": "Vingt-cinq départements",
+    "h1_b": "pour la civilisation à venir.",
+    "lead": "2030B est le registre fondateur — une pile coordonnée de départements responsables de l'infrastructure critique de l'être, du savoir, de l'éthique, du temps, de la mémoire et de la survie. Coût total d'exploitation : 17,49 $ par jour par humain.",
+    "stat_depts": "Départements",
+    "stat_critical": "Niveau critique",
+    "stat_daily": "Quotidien / humain",
+    "stat_anchor": "Ancre : Al-Ḥaqq",
+    "levels_title": "Cinq niveaux de priorité",
+    "levels_lead": "Les départements sont ordonnés selon leur conséquence civilisationnelle. Les départements de niveau critique protègent l'existence elle-même ; les niveaux Standard et Bas cultivent la continuité et le sens.",
+    "twentyfive": "Les Vingt-Cinq",
+    "twentyfive_lead": "Cliquez sur n'importe quel département pour lire sa carte d'identité et son mandat en cinq détails issu du Registre officiel.",
+    "audiences_title": "Choisissez la porte qui vous correspond.",
+    "audiences_lead": "2030B sert différentes communautés dans différentes langues. Ouvrez la page d'atterrissage qui vous est dédiée."
+  },
+  "about": {
+    "chip": "Fondateur",
+    "h1": "Maher.",
+    "lead": "Architecte du cadre 2030B, du standard WebBook et du Département d'Ontologie. Détenteur du droit d'auteur de cette œuvre."
+  },
+  "contact": {
+    "chip": "Contact",
+    "h1": "Joindre 2030B.",
+    "lead": "Questions sur un département, sur le standard WebBook, ou proposition de collaboration. Maher lit chaque message.",
+    "name": "Votre nom",
+    "email": "Email",
+    "topic": "Sujet",
+    "message": "Message",
+    "thanks": "Merci — votre message a bien été reçu."
+  },
+  "vision": {
+    "chip": "Maher · Vision $1Q",
+    "h1_a": "Comment 2030B atteint la première",
+    "h1_b": "économie à 1 000 000 milliards.",
+    "quote": "Rien n'est impossible. Seuls les gens incapables le sont. Avec 2030B, il n'y a que des capables.",
+    "stage1": "Ancrage",
+    "stage2": "Communs",
+    "stage3": "Confiance",
+    "stage4": "Quadrillion"
+  },
+  "levels": {
+    "Critical": "Critique",
+    "High": "Haut",
+    "Medium": "Moyen",
+    "Standard": "Standard",
+    "Low": "Bas"
+  },
+  "audiences": {
+    "general": "Général",
+    "researchers": "Chercheurs",
+    "policymakers": "Décideurs publics",
+    "investors": "Investisseurs",
+    "builders": "Bâtisseurs",
+    "educators": "Éducateurs",
+    "students": "Étudiants",
+    "faith": "Foi",
+    "press": "Presse",
+    "communities": "Communautés"
+  },
+  "errors": {
+    "404_h1": "404",
+    "404_lead": "Cette porte n'est pas dans le registre."
+  }
+}

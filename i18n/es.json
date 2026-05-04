@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "lang": "es",
+    "name": "Español",
+    "dir": "ltr",
+    "author": "Maher",
+    "year": "2026"
+  },
+  "common": {
+    "brand": "2030B",
+    "tagline": "El Punto de Entrada",
+    "vision_cta": "Visión $1Q",
+    "browse_all": "Explorar los 25 departamentos",
+    "open_registry": "Abrir el Registro",
+    "read_more": "Leer completo",
+    "back_home": "Volver al punto de entrada",
+    "all_departments": "Los veinticinco departamentos",
+    "send_message": "Enviar mensaje",
+    "loading": "Cargando…",
+    "views_label": "Miradas en esta puerta",
+    "live_views": "Vistas en vivo",
+    "today": "Hoy",
+    "uniques": "Visitantes únicos",
+    "total": "Vistas totales",
+    "copyright": "© 2026 Maher · 2030B es una obra con derechos de autor de Maher. Todos los derechos reservados."
+  },
+  "nav": {
+    "search": "Buscar",
+    "account": "Tu cuenta",
+    "language": "Idioma",
+    "theme": "Cambiar tema",
+    "departments": "Departamentos",
+    "levels": "Niveles",
+    "audiences": "Audiencias",
+    "project": "Proyecto",
+    "about": "Sobre Maher",
+    "contact": "Contacto",
+    "registry": "Registro"
+  },
+  "home": {
+    "chip": "El Punto de Entrada",
+    "h1_a": "Veinticinco departamentos",
+    "h1_b": "para la civilización por venir.",
+    "lead": "2030B es el registro fundacional — una pila coordinada de departamentos responsables de la infraestructura crítica del ser, el saber, la ética, el tiempo, la memoria y la supervivencia. Costo total de operación: $17.49 por día por humano.",
+    "stat_depts": "Departamentos",
+    "stat_critical": "Nivel crítico",
+    "stat_daily": "Diario / humano",
+    "stat_anchor": "Ancla: Al-Ḥaqq",
+    "levels_title": "Cinco niveles de prioridad",
+    "levels_lead": "Los departamentos se ordenan por consecuencia civilizatoria. Los departamentos de nivel crítico protegen la existencia misma; los niveles Estándar y Bajo cultivan continuidad y significado.",
+    "twentyfive": "Los Veinticinco",
+    "twentyfive_lead": "Haz clic en cualquier departamento para leer su tarjeta de identidad y su mandato de cinco detalles del Registro oficial.",
+    "audiences_title": "Elige la puerta que te corresponde.",
+    "audiences_lead": "2030B sirve a comunidades diferentes en idiomas diferentes. Abre la página adaptada a quién eres."
+  },
+  "about": {
+    "chip": "Fundador",
+    "h1": "Maher.",
+    "lead": "Arquitecto del marco 2030B, del estándar WebBook y del Departamento de Ontología. Titular de los derechos de autor de esta obra."
+  },
+  "contact": {
+    "chip": "Contacto",
+    "h1": "Contactar 2030B.",
+    "lead": "Preguntas sobre un departamento, el estándar WebBook, o propuestas de colaboración. Maher lee cada mensaje.",
+    "name": "Tu nombre",
+    "email": "Correo",
+    "topic": "Tema",
+    "message": "Mensaje",
+    "thanks": "Gracias — tu mensaje ha sido recibido."
+  },
+  "vision": {
+    "chip": "Maher · Visión $1Q",
+    "h1_a": "Cómo 2030B alcanza la primera",
+    "h1_b": "economía de 1.000 billones.",
+    "quote": "Nada es imposible. Solo las personas incapaces lo son. Con 2030B, solo hay capaces.",
+    "stage1": "Anclaje",
+    "stage2": "Comunes",
+    "stage3": "Confianza",
+    "stage4": "Cuatrillón"
+  },
+  "levels": {
+    "Critical": "Crítico",
+    "High": "Alto",
+    "Medium": "Medio",
+    "Standard": "Estándar",
+    "Low": "Bajo"
+  },
+  "audiences": {
+    "general": "General",
+    "researchers": "Investigadores",
+    "policymakers": "Responsables políticos",
+    "investors": "Inversores",
+    "builders": "Constructores",
+    "educators": "Educadores",
+    "students": "Estudiantes",
+    "faith": "Fe",
+    "press": "Prensa",
+    "communities": "Comunidades"
+  },
+  "errors": {
+    "404_h1": "404",
+    "404_lead": "Esta puerta no está en el registro."
+  }
+}

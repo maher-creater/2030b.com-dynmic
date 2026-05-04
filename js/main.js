@@ -82,24 +82,43 @@
 
   /* ======================================================
      INJECT VIEWS COUNTER into every hero (if not present)
+     - One inline chip beside the eyebrow .b-chip (legacy)
+     - One animated hero block under the headline (new, richer)
      ====================================================== */
   function injectViewsCounter(){
     document.querySelectorAll('section[data-b-hero], section[id$="hero-section"], #audRoot > section:first-child').forEach(sec => {
-      if (sec.querySelector('[data-b-views]')) return;
-      // Find the chip / eyebrow row to anchor the counter beside it
-      const chip = sec.querySelector('.b-chip');
-      const counter = document.createElement('span');
-      counter.setAttribute('data-b-views','');
-      counter.setAttribute('data-b-views-page','auto');
-      counter.setAttribute('data-b-views-label','Eyes on this door');
-      counter.style.marginLeft = '.5rem';
-      if (chip && chip.parentNode){
-        // Wrap chip + counter in an inline-flex row for layout safety
-        if (chip.nextSibling !== counter) chip.parentNode.insertBefore(counter, chip.nextSibling);
-      } else {
-        // Fallback: prepend at the top of the hero container
-        const inner = sec.querySelector('.relative, .max-w-7xl, .max-w-6xl') || sec;
-        inner.insertBefore(counter, inner.firstChild);
+      // 1) Inline chip beside the .b-chip eyebrow
+      if (!sec.querySelector('[data-b-views]:not([data-b-views-hero])')) {
+        const chip = sec.querySelector('.b-chip');
+        const counter = document.createElement('span');
+        counter.setAttribute('data-b-views','');
+        counter.setAttribute('data-b-views-page','auto');
+        counter.setAttribute('data-b-views-label','Eyes on this door');
+        counter.style.marginLeft = '.5rem';
+        if (chip && chip.parentNode){
+          if (chip.nextSibling !== counter) chip.parentNode.insertBefore(counter, chip.nextSibling);
+        } else {
+          const inner = sec.querySelector('.relative, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-3xl') || sec;
+          inner.insertBefore(counter, inner.firstChild);
+        }
+      }
+
+      // 2) Animated hero views block — placed after the headline / sub-paragraph
+      if (!sec.querySelector('[data-b-views-hero]')) {
+        const heroBlock = document.createElement('div');
+        heroBlock.setAttribute('data-b-views','');
+        heroBlock.setAttribute('data-b-views-hero','');
+        heroBlock.setAttribute('data-b-views-page','auto');
+        // Anchor: prefer right after the first <h1>, fall back after sub-paragraph, else append.
+        const h1 = sec.querySelector('h1');
+        const sub = sec.querySelector('.b-hero-sub, p.lead, p[data-b-hero-sub]');
+        const anchor = sub || h1;
+        if (anchor && anchor.parentNode){
+          anchor.parentNode.insertBefore(heroBlock, anchor.nextSibling);
+        } else {
+          const inner = sec.querySelector('.relative, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-3xl') || sec;
+          inner.appendChild(heroBlock);
+        }
       }
     });
   }

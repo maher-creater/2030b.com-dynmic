@@ -12,8 +12,10 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/animations.css" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased" data-i18n-page="about">
 
 <div data-shell></div>
 
@@ -22,9 +24,12 @@
     <div class="grid md:grid-cols-[auto_1fr] gap-10 items-start">
       <div data-b-logo="master" data-b-size="180"></div>
       <div data-b-anim>
-        <span class="b-chip"><i data-lucide="user" class="w-3.5 h-3.5"></i> Founder</span>
-        <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4">Maher.</h1>
-        <p class="mt-4 text-lg text-gold-300/80 leading-relaxed">
+        <span class="b-chip"><i data-lucide="user" class="w-3.5 h-3.5"></i> <span data-i18n="about.chip">Founder</span></span>
+        <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4" data-i18n="about.h1">Maher.</h1>
+      <div class="b-hero-views-wrap" data-b-anim="fade-up" data-b-delay="200">
+        <span data-b-views data-b-views-hero data-b-views-page="auto" data-i18n-aria="common.live_views"></span>
+      </div>
+        <p class="mt-4 text-lg text-gold-300/80 leading-relaxed b-hero-sub" data-i18n="about.lead">
           Architect of the 2030B framework, the WebBook standard, and the Ontology Department.
           Holder of the copyright on this work.
         </p>
@@ -53,7 +58,7 @@
       <p class="mt-4">Everything on this site — the registry, the framework, the WebBook standard, the writing, the design — is the original work of Maher and is protected by copyright. You are free to read, share, and quote with attribution. You are not free to relabel it as your own.</p>
     </article>
 
-    <p class="mt-12 text-xs font-mono text-gold-300/45">© 2026 Maher · 2030B is a copyrighted work of Maher. All rights reserved.</p>
+    <p class="mt-12 text-xs font-mono text-gold-300/45" data-i18n="common.copyright">© 2026 Maher · 2030B is a copyrighted work of Maher. All rights reserved.</p>
   </section>
 </main>
 
@@ -65,5 +70,7 @@
 <script src="../js/megamenu.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/views.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/gsap-anim.js"></script>
 </body>
 </html>

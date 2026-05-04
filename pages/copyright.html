@@ -12,8 +12,10 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/animations.css" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased" data-i18n-page="copyright">
 
 <div data-shell></div>
 
@@ -21,7 +23,10 @@
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
     <span class="b-chip"><i data-lucide="copyright" class="w-3.5 h-3.5"></i> Copyright</span>
     <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4">© 2026 <span class="b-grad-text">Maher</span>.</h1>
-    <p class="mt-5 text-lg text-gold-300/80 leading-relaxed">
+      <div class="b-hero-views-wrap" data-b-anim="fade-up" data-b-delay="200">
+        <span data-b-views data-b-views-hero data-b-views-page="auto" data-i18n-aria="common.live_views"></span>
+      </div>
+    <p class="mt-5 text-lg text-gold-300/80 leading-relaxed b-hero-sub">
       The 2030B framework, the registry of sixteen departments, the WebBook standard,
       and all writing, naming, structure, and design on this site are the original
       intellectual work of Maher. All rights reserved.
@@ -64,5 +69,7 @@
 <script src="../js/megamenu.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/views.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/gsap-anim.js"></script>
 </body>
 </html>

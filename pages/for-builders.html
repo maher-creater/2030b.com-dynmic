@@ -12,11 +12,20 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/animations.css" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body data-prefix="../" data-audience="builders" class="bg-ink-950 text-gold-300 antialiased">
+<body data-prefix="../" data-audience="builders" class="bg-ink-950 text-gold-300 antialiased" data-i18n-page="for-builders">
 
 <div data-shell></div>
-<main class="pt-28" id="audRoot"></main>
+<main class="pt-28" id="audRoot">
+  <section data-b-hero class="relative">
+    <div class="max-w-5xl mx-auto px-4 py-6">
+      <div class="b-hero-views-wrap" data-b-anim="fade-up" data-b-delay="200">
+        <span data-b-views data-b-views-hero data-b-views-page="auto" data-i18n-aria="common.live_views"></span>
+      </div>
+    </div>
+  </section></main>
 <div data-shell-foot></div>
 
 <script src="../js/logos.js"></script>
@@ -26,5 +35,7 @@
 <script src="../js/main.js"></script>
 <script src="../js/audiences.js"></script>
 <script src="../js/views.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/gsap-anim.js"></script>
 </body>
 </html>
