@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Read · v3 Wide · 2030B WebBook</title>
+<meta name="author" content="Maher" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:{900:'#08070f',950:'#04030a'},gold:{300:'#f5e6b3',400:'#fbbf24',500:'#d4a857'}},fontFamily:{sans:['Inter','sans-serif'],display:['Cormorant Garamond','serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+/* v3 — WIDE: 420px information-rich aside on the right, frame on the left */
+html,body{background:#04030a;height:100%;margin:0;color:#f5e6b3}
+.wd-shell{display:grid;grid-template-columns:1fr 420px;min-height:100vh}
+.wd-main{display:flex;flex-direction:column}
+.wd-top{padding:.6rem 1rem;border-bottom:1px solid rgba(212,168,87,.18);display:flex;justify-content:space-between;align-items:center;background:rgba(8,7,15,.85)}
+.wd-frame{flex:1;position:relative}
+.wd-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#0c0a1a}
+.wd-aside{
+  background:linear-gradient(180deg,#0a0816,#04030a);border-left:1px solid rgba(212,168,87,.18);
+  height:100vh;overflow-y:auto;position:sticky;top:0;
+}
+.wd-tabs{display:flex;border-bottom:1px solid rgba(212,168,87,.18);position:sticky;top:0;background:#08070f;z-index:5}
+.wd-tab{flex:1;padding:.7rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,230,179,.55);border-bottom:2px solid transparent;font-weight:600}
+.wd-tab[data-active]{color:#fbbf24;border-color:#d4a857;background:rgba(212,168,87,.06)}
+.wd-pane{padding:1.2rem;display:none}
+.wd-pane[data-active]{display:block}
+.wd-src{padding:.4rem 1rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(245,230,179,.5);background:#08070f;border-bottom:1px solid rgba(212,168,87,.18);overflow-x:auto;white-space:nowrap}
+.wd-src a{color:#fbbf24}
+@media(max-width:1100px){.wd-shell{grid-template-columns:1fr}.wd-aside{position:static;height:auto}}
+</style>
+</head>
+<body>
+
+<div class="wd-shell">
+  <main class="wd-main">
+    <div class="wd-top">
+      <a href="../index.html" class="inline-flex items-center gap-2">
+        <span class="w-9 h-9" data-b-logo="master" data-b-size="36"></span>
+        <span class="font-display font-bold">2030B · v3 Wide</span>
+      </a>
+      <div class="flex gap-1 text-xs">
+        <a class="px-2 py-1 rounded border border-amber-200/15 text-gold-300/60" href="read-webbook.html">v1</a>
+        <a class="px-2 py-1 rounded border border-amber-200/15 text-gold-300/60" href="read-webbook-v2.html">v2</a>
+        <a class="px-2 py-1 rounded text-ink-950 bg-amber-400" href="read-webbook-v3.html">v3</a>
+        <a class="px-2 py-1 rounded border border-amber-200/15 text-gold-300/60" href="read-webbook-v4.html">v4</a>
+        <a class="px-2 py-1 rounded border border-amber-200/15 text-gold-300/60" href="read-webbook-v5.html">v5</a>
+        <a class="px-2 py-1 rounded border border-amber-200/15 text-gold-300/60" href="read-webbook-v6.html">v6</a>
+      </div>
+    </div>
+    <div class="wd-src">Source: <a id="wdSrcA" target="_blank"></a></div>
+    <div class="wd-frame"><iframe id="wdFrame"></iframe></div>
+  </main>
+
+  <aside class="wd-aside">
+    <div class="wd-tabs">
+      <button class="wd-tab" data-tab="overview" data-active><i data-lucide="book" class="inline w-3.5 h-3.5"></i> Overview</button>
+      <button class="wd-tab" data-tab="mandate"><i data-lucide="list-checks" class="inline w-3.5 h-3.5"></i> Mandate</button>
+      <button class="wd-tab" data-tab="all"><i data-lucide="grid-2x2" class="inline w-3.5 h-3.5"></i> All 16</button>
+      <button class="wd-tab" data-tab="meta"><i data-lucide="info" class="inline w-3.5 h-3.5"></i> Meta</button>
+    </div>
+    <div class="wd-pane" data-pane="overview" data-active id="wdOverview"></div>
+    <div class="wd-pane" data-pane="mandate" id="wdMandate"></div>
+    <div class="wd-pane" data-pane="all" id="wdAll"></div>
+    <div class="wd-pane" data-pane="meta" id="wdMeta"></div>
+  </aside>
+</div>
+
+<script src="../js/logos.js"></script>
+<script src="../js/registry.js"></script>
+<script>
+(function(){
+  const slug = new URLSearchParams(location.search).get('dept') || 'ontology';
+  const src = 'https://2030b.com/webbook/webbook-v6.html';
+  const dep = (window.B_REGISTRY||[]).find(d=>d.slug===slug);
+  document.title = (dep?.name||'WebBook') + ' · v3 Wide';
+
+  const f = document.getElementById('wdFrame'); f.src = src;
+  document.getElementById('wdSrcA').textContent = src;
+  document.getElementById('wdSrcA').href = src;
+
+  if (dep) {
+    document.getElementById('wdOverview').innerHTML = `
+      <div class="font-display text-2xl font-bold text-gold-300">${dep.name}</div>
+      <div class="text-xs uppercase tracking-wider mt-1" style="color:${dep.color}">● ${dep.level}</div>
+      <p class="mt-3 text-sm text-gold-300/80 leading-relaxed">${dep.short}</p>
+      <p class="mt-4 text-sm text-gold-300/65 leading-relaxed">${dep.full}</p>
+      <a class="inline-flex items-center gap-1 mt-4 text-xs text-gold-400" href="dept-${dep.slug}.html">Open identity card <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
+    `;
+    document.getElementById('wdMandate').innerHTML = `
+      <div class="text-xs uppercase tracking-wider text-gold-300/55 mb-3">Five-detail mandate</div>
+      <ol class="space-y-3">
+        ${dep.details.map((d,i)=>`<li class="flex gap-3 text-sm"><span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style="background:${dep.color}22;color:${dep.color}">${i+1}</span><span class="text-gold-300/85">${d}</span></li>`).join('')}
+      </ol>
+    `;
+    document.getElementById('wdMeta').innerHTML = `
+      <div class="text-xs uppercase tracking-wider text-gold-300/55 mb-2">Source URL</div>
+      <div class="text-xs font-mono text-gold-400 break-all">${src}</div>
+      <div class="text-xs uppercase tracking-wider text-gold-300/55 mb-2 mt-5">Slug</div>
+      <div class="text-xs font-mono text-gold-300/75">/${dep.slug}</div>
+      <div class="text-xs uppercase tracking-wider text-gold-300/55 mb-2 mt-5">Copyright</div>
+      <p class="text-xs text-gold-300/55 font-mono">© 2026 Maher · 2030B is a copyrighted work of Maher.</p>
+    `;
+  }
+  document.getElementById('wdAll').innerHTML = `
+    <div class="text-xs uppercase tracking-wider text-gold-300/55 mb-2">All sixteen departments</div>
+    <ul class="space-y-1">
+      ${(window.B_REGISTRY||[]).map(d=>`<li><a href="?dept=${d.slug}" class="flex items-center gap-2 px-2 py-1.5 rounded text-sm hover:bg-amber-500/10 ${d.slug===slug?'bg-amber-500/10 text-amber-300':'text-gold-300/70'}"><span class="w-1.5 h-1.5 rounded-full" style="background:${d.color}"></span>${d.name.replace(/^2030B /,'')}</a></li>`).join('')}
+    </ul>
+  `;
+  document.querySelectorAll('.wd-tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.wd-tab').forEach(x=>x.removeAttribute('data-active'));
+    document.querySelectorAll('.wd-pane').forEach(x=>x.removeAttribute('data-active'));
+    t.setAttribute('data-active','');
+    document.querySelector(`.wd-pane[data-pane="${t.dataset.tab}"]`).setAttribute('data-active','');
+  }));
+  if (window.lucide) try { lucide.createIcons(); } catch(e){}
+})();
+</script>
+</body>
+</html>

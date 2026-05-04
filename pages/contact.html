@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact · 2030B</title>
+<meta name="description" content="Reach the 2030B project — questions, partnerships, or department proposals." />
+<meta name="author" content="Maher" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:{900:'#08070f',950:'#04030a'},gold:{300:'#f5e6b3',400:'#fbbf24',500:'#d4a857'},sage:{400:'#86c5a0'},indigo:{400:'#7c8df5'},rose:{400:'#f5a3c0'},cyan:{400:'#5fc1d4'}},fontFamily:{sans:['Inter','sans-serif'],display:['Cormorant Garamond','serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/animations.css" />
+</head>
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+
+<div data-shell></div>
+
+<main class="pt-28">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
+    <span class="b-chip"><i data-lucide="mail" class="w-3.5 h-3.5"></i> Contact</span>
+    <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4">Reach <span class="b-grad-text">2030B</span>.</h1>
+    <p class="mt-4 text-gold-300/75">Questions about a department, the WebBook standard, or a proposal for collaboration. Maher reads every message.</p>
+
+    <form id="contactForm" class="mt-10 b-glass rounded-2xl p-6 sm:p-8 space-y-4" data-b-anim>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="text-xs uppercase tracking-wider text-gold-300/60">Your name</span>
+          <input required name="name" class="mt-1 w-full bg-ink-900 border border-amber-200/15 rounded-lg px-3 py-2 text-gold-300 focus:outline-none focus:border-amber-400/60" />
+        </label>
+        <label class="block">
+          <span class="text-xs uppercase tracking-wider text-gold-300/60">Email</span>
+          <input required type="email" name="email" class="mt-1 w-full bg-ink-900 border border-amber-200/15 rounded-lg px-3 py-2 text-gold-300 focus:outline-none focus:border-amber-400/60" />
+        </label>
+      </div>
+      <label class="block">
+        <span class="text-xs uppercase tracking-wider text-gold-300/60">Topic</span>
+        <select name="topic" class="mt-1 w-full bg-ink-900 border border-amber-200/15 rounded-lg px-3 py-2 text-gold-300 focus:outline-none focus:border-amber-400/60">
+          <option>General question</option>
+          <option>Department proposal</option>
+          <option>WebBook standard</option>
+          <option>Press / interview</option>
+          <option>Copyright / licensing</option>
+        </select>
+      </label>
+      <label class="block">
+        <span class="text-xs uppercase tracking-wider text-gold-300/60">Message</span>
+        <textarea required name="message" rows="6" class="mt-1 w-full bg-ink-900 border border-amber-200/15 rounded-lg px-3 py-2 text-gold-300 focus:outline-none focus:border-amber-400/60"></textarea>
+      </label>
+      <button type="submit" class="b-btn-primary"><i data-lucide="send" class="w-4 h-4"></i> Send message</button>
+      <p id="contactStatus" class="text-sm text-emerald-300 hidden">Thank you — your message has been received.</p>
+    </form>
+  </section>
+</main>
+
+<div data-shell-foot></div>
+
+<script src="../js/logos.js"></script>
+<script src="../js/registry.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/megamenu.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/views.js"></script>
+<script>
+document.addEventListener('submit', async function(e){
+  if (e.target.id !== 'contactForm') return;
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  data.status = 'new';
+  data.source_page = '2030b-site/contact';
+  try {
+    await fetch('tables/contact_messages', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+    });
+  } catch(err){}
+  e.target.reset();
+  document.getElementById('contactStatus').classList.remove('hidden');
+});
+</script>
+</body>
+</html>

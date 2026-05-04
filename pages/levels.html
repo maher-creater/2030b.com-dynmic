@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Five Priority Levels · 2030B</title>
+<meta name="description" content="How the five priority levels (Critical, High, Medium, Standard, Low) order the sixteen departments of the 2030B stack." />
+<meta name="author" content="Maher" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:{900:'#08070f',950:'#04030a'},gold:{300:'#f5e6b3',400:'#fbbf24',500:'#d4a857'},sage:{400:'#86c5a0'},indigo:{400:'#7c8df5'},rose:{400:'#f5a3c0'},cyan:{400:'#5fc1d4'}},fontFamily:{sans:['Inter','sans-serif'],display:['Cormorant Garamond','serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/animations.css" />
+</head>
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+
+<div data-shell></div>
+
+<main class="pt-28">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
+    <span class="b-chip"><i data-lucide="layers" class="w-3.5 h-3.5"></i> The Framework</span>
+    <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4 max-w-4xl">Five priority <span class="b-grad-text">levels</span> that order the stack.</h1>
+    <p class="mt-5 max-w-2xl text-gold-300/75">Departments are not equal. They are ordered by civilizational consequence — by how badly things go if the department fails.</p>
+
+    <div class="mt-12 grid lg:grid-cols-5 md:grid-cols-2 gap-4" data-b-stagger id="levelsGrid"></div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold" data-b-anim>Departments grouped by level</h2>
+    <div id="byLevel" class="mt-8 space-y-10"></div>
+  </section>
+</main>
+
+<div data-shell-foot></div>
+
+<script src="../js/logos.js"></script>
+<script src="../js/registry.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/megamenu.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/views.js"></script>
+<script>
+const LEVELS = [
+  { key:'Critical', color:'#f5a3c0', tag:'Existence-bearing', body:'If these fail, civilization itself fails. Critical departments protect the very possibility of continuity.' },
+  { key:'High',     color:'#fbbf24', tag:'Load-bearing',     body:'High-level departments hold up the major structures: time, knowledge, conscience, sentience.' },
+  { key:'Medium',   color:'#86c5a0', tag:'Direction-shaping',body:'Medium departments shape what civilization becomes — its culture, its empathy, its trans-substrate identity.' },
+  { key:'Standard', color:'#7c8df5', tag:'Coherence-keeping',body:'Standard departments keep the rest of the stack consistent and able to talk across difference.' },
+  { key:'Low',      color:'#5fc1d4', tag:'Long-horizon',     body:'Low-priority does not mean unimportant — it means slow, ancestral, and patient over centuries.' }
+];
+
+document.addEventListener('DOMContentLoaded', function(){
+  const grid = document.getElementById('levelsGrid');
+  grid.innerHTML = LEVELS.map(l => {
+    const count = (window.B_REGISTRY || []).filter(d => d.level === l.key).length;
+    return `
+      <article class="b-glass rounded-2xl p-6 relative overflow-hidden" style="--lc:${l.color}">
+        <span class="absolute top-4 right-4 w-3 h-3 rounded-full" style="background:${l.color};box-shadow:0 0 14px ${l.color}"></span>
+        <div class="text-xs uppercase tracking-[.18em] font-semibold" style="color:${l.color}">${l.key}</div>
+        <div class="font-display text-3xl font-bold mt-2">${count}</div>
+        <div class="text-xs text-gold-300/55 uppercase tracking-wider">${l.tag}</div>
+        <p class="text-sm text-gold-300/75 mt-3 leading-relaxed">${l.body}</p>
+      </article>`;
+  }).join('');
+
+  const byLevel = document.getElementById('byLevel');
+  byLevel.innerHTML = LEVELS.map(l => {
+    const list = (window.B_REGISTRY || []).filter(d => d.level === l.key);
+    return `
+      <section data-b-anim>
+        <h3 class="font-display text-2xl font-bold mb-4 flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full" style="background:${l.color};box-shadow:0 0 10px ${l.color}"></span>
+          ${l.key} <span class="text-gold-300/45 text-base font-sans font-normal">· ${list.length} department${list.length===1?'':'s'}</span>
+        </h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          ${list.map(d => window.B_RENDER.depCardHTML(d, '../')).join('')}
+        </div>
+      </section>`;
+  }).join('');
+
+  if (window.lucide) try { lucide.createIcons(); } catch(e){}
+});
+</script>
+</body>
+</html>

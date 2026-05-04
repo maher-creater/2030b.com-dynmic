@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The WebBook Standard · 2030B</title>
+<meta name="description" content="What a WebBook is, why every 2030B department writes one, and the canonical structure every WebBook must follow." />
+<meta name="author" content="Maher" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:{900:'#08070f',950:'#04030a'},gold:{300:'#f5e6b3',400:'#fbbf24',500:'#d4a857'},sage:{400:'#86c5a0'},indigo:{400:'#7c8df5'},rose:{400:'#f5a3c0'},cyan:{400:'#5fc1d4'}},fontFamily:{sans:['Inter','sans-serif'],display:['Cormorant Garamond','serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+
+<div data-shell></div>
+
+<main class="pt-28">
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
+    <span class="b-chip"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> WebBook Standard v1</span>
+    <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4">A WebBook is the <span class="b-grad-text">canonical charter</span> of a department.</h1>
+    <p class="mt-5 text-lg text-gold-300/75 max-w-3xl leading-relaxed">
+      Every department in 2030B publishes a WebBook: a living, navigable, AI-aware document that
+      defines who they are, what they are responsible for, and how they intend to discharge that
+      responsibility. WebBooks replace the brittle PDF, the dead whitepaper, the static "about" page.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold" data-b-anim>The eight required sections</h2>
+    <div class="mt-8 grid md:grid-cols-2 gap-4" data-b-stagger>
+      ${''}
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§1</div><h3 class="font-display text-xl font-bold mt-1">Identity</h3><p class="text-sm text-gold-300/70 mt-1">Name, slug, level, color, anchor symbol, and one-line definition.</p></article>
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§2</div><h3 class="font-display text-xl font-bold mt-1">Mandate (5 keys)</h3><p class="text-sm text-gold-300/70 mt-1">The five-detail blueprint exactly as stated in the official Registry.</p></article>
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§3</div><h3 class="font-display text-xl font-bold mt-1">Foundations</h3><p class="text-sm text-gold-300/70 mt-1">The conceptual ground: what the department assumes about the world.</p></article>
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§4</div><h3 class="font-display text-xl font-bold mt-1">Methods</h3><p class="text-sm text-gold-300/70 mt-1">How the department actually does its work — protocols, instruments, audits.</p></article>
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§5</div><h3 class="font-display text-xl font-bold mt-1">Boundaries</h3><p class="text-sm text-gold-300/70 mt-1">What the department refuses to do, and where it defers to other departments.</p></article>
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§6</div><h3 class="font-display text-xl font-bold mt-1">Roadmap</h3><p class="text-sm text-gold-300/70 mt-1">Public milestones, dependencies, and the next twelve months of work.</p></article>
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§7</div><h3 class="font-display text-xl font-bold mt-1">Glossary</h3><p class="text-sm text-gold-300/70 mt-1">Terms a reader must know to use the WebBook responsibly.</p></article>
+      <article class="b-glass rounded-xl p-5"><div class="text-xs text-gold-400 font-mono">§8</div><h3 class="font-display text-xl font-bold mt-1">Anchor</h3><p class="text-sm text-gold-300/70 mt-1">The non-relativizable reference (for the Ontology Department, this is <em>Al-Ḥaqq</em>).</p></article>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <div class="b-glass rounded-2xl p-8 sm:p-10 text-center" data-b-anim>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold">Open a WebBook now</h2>
+      <p class="mt-3 text-gold-300/70 max-w-xl mx-auto">The reader supports six layout variants — minimal, focus, split, wide-aside, fullscreen, and tabbed — so the department's content shapes the reading experience.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href="read-webbook.html" class="b-btn-primary"><i data-lucide="book-open" class="w-4 h-4"></i> Open default reader</a>
+        <a href="read-webbook-v2.html" class="b-btn-ghost"><i data-lucide="layout" class="w-4 h-4"></i> v2 · Focus</a>
+        <a href="read-webbook-v4.html" class="b-btn-ghost"><i data-lucide="columns-2" class="w-4 h-4"></i> v4 · Split</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-shell-foot></div>
+
+<script src="../js/logos.js"></script>
+<script src="../js/registry.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/megamenu.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

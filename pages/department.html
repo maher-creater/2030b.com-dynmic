@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Department · 2030B</title>
+<meta name="description" content="Department charter — identity, mandate, daily cost, foundations, methods, and roadmap." />
+<meta name="author" content="Maher" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:{900:'#08070f',950:'#04030a'},gold:{300:'#f5e6b3',400:'#fbbf24',500:'#d4a857'},sage:{400:'#86c5a0'},indigo:{400:'#7c8df5'},rose:{400:'#f5a3c0'},cyan:{400:'#5fc1d4'}},fontFamily:{sans:['Inter','sans-serif'],display:['Cormorant Garamond','serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/animations.css" />
+</head>
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+
+<div data-shell></div>
+
+<main class="pt-28">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12" id="depHero" data-b-hero data-b-block></section>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10" id="depBody" data-b-block></section>
+</main>
+
+<div data-shell-foot></div>
+
+<script src="../js/logos.js"></script>
+<script src="../js/registry.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/megamenu.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/views.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const slug = (location.pathname.match(/dept-([a-z0-9-]+)\.html/) || [])[1]
+    || new URLSearchParams(location.search).get('slug') || 'ontology';
+  const d = (window.B_REGISTRY || []).find(x => x.slug === slug);
+  if (!d) { document.getElementById('depHero').innerHTML = '<p>Unknown department.</p>'; return; }
+
+  document.title = d.name + ' · 2030B';
+  const colors = window.B_LEVEL_COLORS || {};
+  const cost = (typeof d.cost === 'number') ? '$' + d.cost.toFixed(2) : '—';
+
+  document.getElementById('depHero').innerHTML = `
+    <a href="departments.html" class="text-xs text-gold-300/55 hover:text-gold-400 inline-flex items-center gap-1"><i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> All twenty-five departments</a>
+    <div class="grid lg:grid-cols-[auto_1fr] gap-8 items-start mt-4">
+      <div class="w-32 h-32 rounded-2xl flex items-center justify-center" style="background:${d.color}1a;border:1px solid ${d.color}55">
+        <i data-lucide="${d.icon}" class="w-14 h-14" style="color:${d.color}"></i>
+      </div>
+      <div>
+        <span class="b-dep-level" style="color:${colors[d.level]||'#d4a857'}">● ${d.level} · ${cost}/day per human</span>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mt-2 leading-tight">${d.name}</h1>
+        <p class="mt-3 text-lg text-gold-300/75 max-w-3xl">${d.short}</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="registry.html#${d.slug}" class="b-btn-primary"><i data-lucide="book-marked" class="w-4 h-4"></i> Registry row</a>
+          <a href="departments.html" class="b-btn-ghost"><i data-lucide="layout-grid" class="w-4 h-4"></i> All departments</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('depBody').innerHTML = `
+    <div class="grid lg:grid-cols-[1.5fr_1fr] gap-10">
+      <div data-b-anim>
+        <h2 class="font-display text-2xl font-bold">Full description</h2>
+        <p class="mt-3 text-gold-300/85 leading-relaxed text-lg">${d.full}</p>
+
+        <h2 class="font-display text-2xl font-bold mt-12">Foundations</h2>
+        <p class="mt-3 text-gold-300/75 leading-relaxed">The ${d.name.replace(/^2030B /,'')} works on the assumption that its problem space is real, urgent, and not adequately addressed by any existing institution. It does not claim final answers — it claims a stable seat at the table.</p>
+
+        <h2 class="font-display text-2xl font-bold mt-12">Daily cost economics</h2>
+        <p class="mt-3 text-gold-300/75 leading-relaxed">This department operates on <strong class="text-amber-300">${cost} per human per day</strong>. Aggregated across the twenty-five 2030B departments, the entire civilizational stack runs on $17.49 per human per day — affordable, distributed, accountable.</p>
+
+        <h2 class="font-display text-2xl font-bold mt-12">Boundaries</h2>
+        <p class="mt-3 text-gold-300/75 leading-relaxed">Where this department defers: to <a class="b-link" href="dept-ontology.html">Ontology</a> on questions of categorical reality, to <a class="b-link" href="dept-quantum-ethics.html">Quantum Ethics</a> on probabilistic moral judgement, and to <a class="b-link" href="dept-paradox-resolution.html">Paradox Resolution</a> when its conclusions clash with another department's.</p>
+      </div>
+
+      <aside data-b-anim data-b-delay="1">
+        <div class="b-glass rounded-2xl p-6 sticky top-28">
+          <h3 class="font-display text-xl font-bold">Five-detail mandate</h3>
+          <p class="text-xs text-gold-300/55 mt-1">From the official Registry · © Maher</p>
+          <ol class="mt-4 space-y-3 text-sm text-gold-300/85">
+            ${d.details.map((x,i) => `
+              <li class="flex gap-3">
+                <span class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold" style="background:${d.color}22;color:${d.color}">${i+1}</span>
+                <span>${x}</span>
+              </li>`).join('')}
+          </ol>
+          <hr class="my-5 border-amber-200/10" />
+          <div class="text-xs text-gold-300/55 space-y-1">
+            <div><span class="text-gold-400">Slug:</span> /${d.slug}</div>
+            <div><span class="text-gold-400">Color:</span> ${d.color}</div>
+            <div><span class="text-gold-400">Icon:</span> ${d.icon}</div>
+            <div><span class="text-gold-400">Level:</span> ${d.level}</div>
+            <div><span class="text-gold-400">Cost:</span> ${cost}/day</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="mt-16" data-b-block>
+      <h2 class="font-display text-2xl font-bold">Related departments</h2>
+      <div id="rel" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-b-stagger></div>
+    </section>
+  `;
+
+  const rel = (window.B_REGISTRY || []).filter(x => x.level === d.level && x.slug !== d.slug).slice(0,3);
+  document.getElementById('rel').innerHTML = rel.map(x => window.B_RENDER.depCardHTML(x, '')).join('');
+
+  if (window.lucide) try { lucide.createIcons(); } catch(e){}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+/* 2030B Entry-Point Site — Attention-grabbing animations
+ * © 2026 Maher. All rights reserved.
+ *
+ * The Entry Point is meant to be visited by ALL of humanity. Every block,
+ * section, and component must EARN attention. This stylesheet defines the
+ * gate: nothing animates before html.b-revealed; once the loader hands off,
+ * everything cascades in with intent.
+ *
+ * Hooks (read by js/main.js — auto-tagged on every page):
+ *   [data-b-block]                      — section-level reveal (40 px / 1 s)
+ *   [data-b-anim]                       — element reveal (24 px / .7 s)
+ *   [data-b-anim="left|right|zoom|fade|tilt|drop"] — direction variants
+ *   [data-b-stagger] > *                — child cascade (per-child .04 s steps)
+ *   [data-b-component]                  — component-level pop-in
+ *   [data-b-emphasis]                   — recurring breath / shimmer for hero CTA
+ *   [data-b-attention]                  — heartbeat pulse for stats / numbers
+ *   [data-b-glow]                       — soft halo on first reveal
+ *   [data-b-typewriter]                 — character cascade for hero headlines
+ *   [data-b-marquee]                    — horizontal infinite scroll
+ *   [data-b-tilt]                       — gentle hover tilt for cards
+ */
+
+/* ============================================================
+   GATE — nothing animates until the loader hands off
+   ============================================================ */
+[data-b-anim], [data-b-block], [data-b-component]{
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity   .9s cubic-bezier(.18, .85, .25, 1),
+    transform .9s cubic-bezier(.18, .85, .25, 1),
+    filter    .9s ease;
+  will-change: opacity, transform;
+}
+[data-b-stagger] > *{
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity   .65s cubic-bezier(.18, .85, .25, 1),
+    transform .65s cubic-bezier(.18, .85, .25, 1);
+  will-change: opacity, transform;
+}
+
+/* Direction variants */
+[data-b-anim="left"]    { transform: translateX(-40px) }
+[data-b-anim="right"]   { transform: translateX( 40px) }
+[data-b-anim="zoom"]    { transform: scale(.92) }
+[data-b-anim="fade"]    { transform: none }
+[data-b-anim="tilt"]    { transform: translateY(28px) rotate(-2deg) }
+[data-b-anim="drop"]    { transform: translateY(-32px); filter: blur(4px) }
+
+[data-b-block][data-b-anim-pose="left"]   { transform: translateX(-60px) }
+[data-b-block][data-b-anim-pose="right"]  { transform: translateX( 60px) }
+[data-b-block][data-b-anim-pose="zoom"]   { transform: scale(.94) }
+
+/* Activated state (only after html.b-revealed) */
+html.b-revealed [data-b-anim][data-b-in],
+html.b-revealed [data-b-block][data-b-in],
+html.b-revealed [data-b-component][data-b-in]{
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1) rotate(0);
+  filter: none;
+}
+html.b-revealed [data-b-stagger][data-b-in] > *{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Per-child cascade — up to 24 children, then steady */
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(1)  { transition-delay: .04s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(2)  { transition-delay: .10s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(3)  { transition-delay: .16s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(4)  { transition-delay: .22s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(5)  { transition-delay: .28s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(6)  { transition-delay: .34s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(7)  { transition-delay: .40s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(8)  { transition-delay: .46s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(9)  { transition-delay: .52s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(10) { transition-delay: .58s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(11) { transition-delay: .62s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(12) { transition-delay: .66s }
+html.b-revealed [data-b-stagger][data-b-in] > *:nth-child(n+13){ transition-delay: .70s }
+
+/* Manual delays */
+[data-b-delay="1"] { transition-delay: .08s }
+[data-b-delay="2"] { transition-delay: .18s }
+[data-b-delay="3"] { transition-delay: .28s }
+[data-b-delay="4"] { transition-delay: .40s }
+[data-b-delay="5"] { transition-delay: .55s }
+
+/* ============================================================
+   COMPONENT — pop-in with subtle bounce
+   ============================================================ */
+[data-b-component]{
+  transform: translateY(20px) scale(.96);
+}
+html.b-revealed [data-b-component][data-b-in]{
+  transform: translateY(0) scale(1);
+  transition:
+    opacity   .8s cubic-bezier(.2, 1.4, .35, 1),
+    transform .8s cubic-bezier(.2, 1.4, .35, 1);
+}
+
+/* ============================================================
+   ATTENTION — recurring loops AFTER first reveal
+   ============================================================ */
+
+/* Hero CTA — slow breathing */
+html.b-revealed [data-b-emphasis]{
+  animation: bEmphasisBreathe 4.6s ease-in-out infinite;
+}
+@keyframes bEmphasisBreathe{
+  0%, 100% { transform: translateY(0) scale(1);    box-shadow: 0 12px 30px rgba(212,168,87,.18) }
+  50%      { transform: translateY(-2px) scale(1.025); box-shadow: 0 22px 50px rgba(212,168,87,.32) }
+}
+
+/* Stats numbers — heartbeat pulse */
+html.b-revealed [data-b-attention]{
+  animation: bAttentionPulse 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes bAttentionPulse{
+  0%, 100% { transform: scale(1);    filter: brightness(1) }
+  18%      { transform: scale(1.04); filter: brightness(1.18) }
+  36%      { transform: scale(1);    filter: brightness(1) }
+  54%      { transform: scale(1.025);filter: brightness(1.10) }
+  72%      { transform: scale(1);    filter: brightness(1) }
+}
+
+/* Glow halo — recurring soft pulse */
+html.b-revealed [data-b-glow]{
+  position: relative;
+}
+html.b-revealed [data-b-glow]::after{
+  content: '';
+  position: absolute; inset: -8px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(212,168,87,.35) 0%, transparent 65%);
+  filter: blur(18px);
+  opacity: 0;
+  z-index: -1;
+  animation: bGlowPulse 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes bGlowPulse{
+  0%, 100% { opacity: 0;   transform: scale(.92) }
+  50%      { opacity: .85; transform: scale(1.08) }
+}
+
+/* Typewriter — character-by-character cascade */
+[data-b-typewriter] .b-tw-char{
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(.45em) rotate(8deg);
+  transition:
+    opacity .55s cubic-bezier(.18,.85,.25,1),
+    transform .65s cubic-bezier(.18,.85,.25,1);
+}
+html.b-revealed [data-b-typewriter][data-b-in] .b-tw-char{
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+}
+html.b-revealed [data-b-typewriter][data-b-in] .b-tw-char.b-tw-space{
+  width: .25em;
+}
+
+/* Marquee */
+[data-b-marquee]{
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+[data-b-marquee] .b-marquee-track{
+  display: inline-flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: bMarquee 38s linear infinite;
+  padding-left: 100%;
+}
+[data-b-marquee]:hover .b-marquee-track{ animation-play-state: paused }
+@keyframes bMarquee{
+  from { transform: translateX(0) }
+  to   { transform: translateX(-100%) }
+}
+
+/* Tilt — gentle 3D hover */
+[data-b-tilt]{
+  transition: transform .45s cubic-bezier(.18,.85,.25,1), box-shadow .45s ease;
+  transform-style: preserve-3d;
+}
+[data-b-tilt]:hover{
+  transform: translateY(-4px) perspective(800px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 28px 60px rgba(212,168,87,.18);
+}
+
+/* ============================================================
+   HERO PRESETS — for the entry-point flag of every page
+   ============================================================ */
+.b-hero-eyebrow{
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+html.b-revealed [data-b-block][data-b-in] .b-hero-eyebrow{
+  opacity: 1; transform: translateY(0);
+  transition-delay: .15s;
+}
+
+.b-hero-headline-row{
+  display: block;
+  overflow: hidden;
+  line-height: 1.05;
+}
+.b-hero-headline-inner{
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(.2, .85, .2, 1);
+}
+html.b-revealed [data-b-block][data-b-in] .b-hero-headline-row:nth-of-type(1) .b-hero-headline-inner{
+  transform: translateY(0); transition-delay: .25s;
+}
+html.b-revealed [data-b-block][data-b-in] .b-hero-headline-row:nth-of-type(2) .b-hero-headline-inner{
+  transform: translateY(0); transition-delay: .42s;
+}
+html.b-revealed [data-b-block][data-b-in] .b-hero-headline-row:nth-of-type(3) .b-hero-headline-inner{
+  transform: translateY(0); transition-delay: .58s;
+}
+
+.b-hero-sub, .b-hero-actions{
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+html.b-revealed [data-b-block][data-b-in] .b-hero-sub{
+  opacity: 1; transform: translateY(0); transition-delay: .68s;
+}
+html.b-revealed [data-b-block][data-b-in] .b-hero-actions{
+  opacity: 1; transform: translateY(0); transition-delay: .82s;
+}
+
+/* ============================================================
+   ORB MOVEMENT — background drift accentuated on reveal
+   ============================================================ */
+html.b-revealed .b-orb{
+  animation: bOrbDrift 18s ease-in-out infinite;
+}
+@keyframes bOrbDrift{
+  0%, 100% { transform: translate(0,0) scale(1) }
+  25%      { transform: translate(18px,-12px) scale(1.06) }
+  50%      { transform: translate(-8px,16px) scale(.98) }
+  75%      { transform: translate(-22px,-6px) scale(1.04) }
+}
+
+/* ============================================================
+   FILTER PILL ACTIVATION — ripple on click
+   ============================================================ */
+.b-filter{ position: relative; overflow: hidden }
+.b-filter::after{
+  content: '';
+  position: absolute; inset: 50% 50% 50% 50%;
+  border-radius: 999px;
+  background: rgba(212,168,87,.5);
+  transform: translate(-50%,-50%);
+  transition: inset .55s ease, opacity .55s ease;
+  opacity: 0; pointer-events: none;
+}
+.b-filter:active::after{ inset: -10% -10% -10% -10%; opacity: .6 }
+
+/* ============================================================
+   DEPARTMENT CARD — recurring scan-line so it earns attention
+   ============================================================ */
+html.b-revealed .b-dep-card{ position: relative; overflow: hidden }
+html.b-revealed .b-dep-card::after{
+  content: '';
+  position: absolute; left: -30%; top: 0; bottom: 0; width: 40%;
+  background: linear-gradient(115deg, transparent 30%, rgba(245,230,179,.08) 50%, transparent 70%);
+  animation: bDepScan 7s ease-in-out infinite;
+  pointer-events: none;
+}
+.b-dep-card:nth-child(2n)::after { animation-delay: 1.4s }
+.b-dep-card:nth-child(3n)::after { animation-delay: 2.7s }
+.b-dep-card:nth-child(4n)::after { animation-delay: 3.9s }
+@keyframes bDepScan{
+  0%, 35% { left: -30% }
+  60%     { left: 110% }
+  100%    { left: 110% }
+}
+
+/* ============================================================
+   STAT CARD — number flip on reveal
+   ============================================================ */
+.b-stat-num{
+  display: inline-block;
+  transform-origin: center bottom;
+}
+html.b-revealed [data-b-stagger][data-b-in] > .b-stat .b-stat-num{
+  animation: bStatFlip 1.2s cubic-bezier(.2, 1.4, .35, 1) both;
+}
+@keyframes bStatFlip{
+  0%   { opacity: 0; transform: rotateX(-90deg) translateY(20px) }
+  60%  { opacity: 1; transform: rotateX(8deg)  translateY(0) }
+  100% { opacity: 1; transform: rotateX(0)     translateY(0) }
+}
+
+/* ============================================================
+   BUTTON — primary CTA recurring shimmer
+   ============================================================ */
+.b-btn-primary{
+  position: relative;
+  overflow: hidden;
+}
+.b-btn-primary::after{
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.45) 50%, transparent 65%);
+  transform: translateX(-110%);
+  animation: bBtnShimmer 4.4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes bBtnShimmer{
+  0%, 60% { transform: translateX(-110%) }
+  90%     { transform: translateX(110%)  }
+  100%    { transform: translateX(110%)  }
+}
+
+/* ============================================================
+   LEVEL CARD — coloured rim sweep
+   ============================================================ */
+.b-level-card{ position: relative; overflow: hidden }
+.b-level-card::after{
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 0%, var(--lc, #d4a857) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.b-level-card:hover::after{ opacity: .35 }
+
+/* ============================================================
+   CHIP — entrance pop
+   ============================================================ */
+html.b-revealed [data-b-block][data-b-in] .b-chip{
+  animation: bChipPop .85s cubic-bezier(.2, 1.6, .35, 1) both;
+  animation-delay: .05s;
+}
+@keyframes bChipPop{
+  0%   { opacity: 0; transform: translateY(12px) scale(.85) }
+  60%  { opacity: 1; transform: translateY(0)   scale(1.06) }
+  100% { opacity: 1; transform: translateY(0)   scale(1)    }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation: none !important; transition: none !important }
+  [data-b-anim], [data-b-block], [data-b-component],
+  [data-b-stagger] > *, .b-hero-sub, .b-hero-actions, .b-hero-eyebrow,
+  .b-hero-headline-inner, [data-b-typewriter] .b-tw-char{
+    opacity: 1 !important; transform: none !important; filter: none !important;
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Sixteen Departments · 2030B</title>
+<meta name="description" content="Browse all sixteen departments of the 2030B civilizational stack — filter by priority level, open identity cards, or jump straight into a WebBook." />
+<meta name="author" content="Maher" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:{900:'#08070f',950:'#04030a'},gold:{300:'#f5e6b3',400:'#fbbf24',500:'#d4a857'},sage:{400:'#86c5a0'},indigo:{400:'#7c8df5'},rose:{400:'#f5a3c0'},cyan:{400:'#5fc1d4'}},fontFamily:{sans:['Inter','sans-serif'],display:['Cormorant Garamond','serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/animations.css" />
+</head>
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+
+<div data-shell></div>
+
+<main class="pt-28">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
+    <span class="b-chip"><i data-lucide="layout-grid" class="w-3.5 h-3.5"></i> The Sixteen</span>
+    <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4 max-w-4xl">All <span class="b-grad-text">sixteen departments</span> of the 2030B stack.</h1>
+    <p class="mt-5 max-w-2xl text-gold-300/75">Each card opens an identity sheet. Each WebBook icon opens the canonical charter.</p>
+
+    <div class="mt-8 flex flex-wrap items-center gap-2" data-b-anim>
+      <button class="b-filter" data-filter="all" data-active>All 16</button>
+      <button class="b-filter" data-filter="Critical">Critical · 5</button>
+      <button class="b-filter" data-filter="High">High · 4</button>
+      <button class="b-filter" data-filter="Medium">Medium · 3</button>
+      <button class="b-filter" data-filter="Standard">Standard · 2</button>
+      <button class="b-filter" data-filter="Low">Low · 2</button>
+    </div>
+
+    <div id="depGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+  </section>
+</main>
+
+<div data-shell-foot></div>
+
+<script src="../js/logos.js"></script>
+<script src="../js/registry.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/megamenu.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/views.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  if (!window.B_REGISTRY || !window.B_RENDER) return;
+  const grid = document.getElementById('depGrid');
+  grid.innerHTML = window.B_REGISTRY.map(d => window.B_RENDER.depCardHTML(d, '../')).join('');
+  if (window.lucide) try { lucide.createIcons(); } catch(e){}
+  document.querySelectorAll('.b-filter').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.b-filter').forEach(x => x.removeAttribute('data-active'));
+    b.setAttribute('data-active','');
+    const f = b.dataset.filter;
+    grid.querySelectorAll('.b-dep-card').forEach(c => {
+      c.style.display = (f === 'all' || c.dataset.level === f) ? '' : 'none';
+    });
+  }));
+});
+</script>
+</body>
+</html>

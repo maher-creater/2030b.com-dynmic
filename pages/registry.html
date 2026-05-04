@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Official Registry · 2030B</title>
+<meta name="description" content="The 2030B Organizational Departments Registry — the canonical short-level + key-details table for all sixteen departments." />
+<meta name="author" content="Maher" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:{900:'#08070f',950:'#04030a'},gold:{300:'#f5e6b3',400:'#fbbf24',500:'#d4a857'},sage:{400:'#86c5a0'},indigo:{400:'#7c8df5'},rose:{400:'#f5a3c0'},cyan:{400:'#5fc1d4'}},fontFamily:{sans:['Inter','sans-serif'],display:['Cormorant Garamond','serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/animations.css" />
+</head>
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+
+<div data-shell></div>
+
+<main class="pt-28">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
+    <span class="b-chip"><i data-lucide="book-marked" class="w-3.5 h-3.5"></i> Official Registry</span>
+    <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4 max-w-4xl">The <span class="b-grad-text">2030B Organizational Departments Registry</span>.</h1>
+    <p class="mt-5 max-w-3xl text-gold-300/75">The canonical short table. Each row carries the department, its priority level, and its five key mandates — the working blueprint by which a department is judged.</p>
+
+    <div class="mt-10 b-glass rounded-2xl p-3 sm:p-4 overflow-x-auto" data-b-anim>
+      <table class="b-table">
+        <thead>
+          <tr>
+            <th>Department</th>
+            <th>Level</th>
+            <th>Key Details</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="regBody"></tbody>
+      </table>
+    </div>
+
+    <p class="mt-8 text-xs text-gold-300/45 font-mono">© 2026 Maher · 2030B Registry is a copyrighted work of Maher.</p>
+  </section>
+</main>
+
+<div data-shell-foot></div>
+
+<script src="../js/logos.js"></script>
+<script src="../js/registry.js"></script>
+<script src="../js/shell.js"></script>
+<script src="../js/megamenu.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/views.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const tb = document.getElementById('regBody');
+  if (!tb || !window.B_REGISTRY) return;
+  const colors = window.B_LEVEL_COLORS || {};
+  tb.innerHTML = window.B_REGISTRY.map(d => `
+    <tr>
+      <td>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 shrink-0 rounded-md flex items-center justify-center" style="background:${d.color}33;color:${d.color}"><i data-lucide="${d.icon}" class="w-4 h-4"></i></span>
+          <div>
+            <div class="font-semibold text-gold-300">${d.name}</div>
+            <div class="text-xs text-gold-300/55 mt-0.5">/${d.slug}</div>
+          </div>
+        </div>
+      </td>
+      <td><span class="b-dep-level" style="color:${colors[d.level]||'#d4a857'}">● ${d.level}</span></td>
+      <td>
+        <ul class="list-disc list-inside space-y-1 text-gold-300/75 text-[.82rem]">
+          ${d.details.map(x => `<li>${x}</li>`).join('')}
+        </ul>
+      </td>
+      <td class="whitespace-nowrap">
+        <a class="b-link text-xs" href="dept-${d.slug}.html">Charter <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
+      </td>
+    </tr>
+  `).join('');
+  if (window.lucide) try { lucide.createIcons(); } catch(e){}
+});
+</script>
+</body>
+</html>
