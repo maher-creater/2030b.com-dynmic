@@ -1,0 +1,27 @@
+# 2030B-ABC · Binance Pay endpoint hardening
+Options -Indexes
+DirectoryIndex index.php
+
+# Block direct access to SQLite files
+<FilesMatch "\.(sqlite|sqlite-journal|sqlite-wal|sqlite-shm|sql)$">
+    Require all denied
+</FilesMatch>
+
+# Block dotfiles and schema
+<FilesMatch "^(\.|schema\.sql$)">
+    Require all denied
+</FilesMatch>
+
+# Force JSON content-type fallback
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "no-referrer"
+</IfModule>
+
+# Route everything through index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ index.php [L,QSA]
+</IfModule>

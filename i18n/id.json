@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "lang": "id",
+    "name": "Indonesia",
+    "dir": "ltr",
+    "author": "Maher",
+    "year": "2026"
+  },
+  "common": {
+    "brand": "2030B",
+    "tagline": "Titik Masuk",
+    "vision_cta": "Visi $1Q",
+    "browse_all": "Jelajahi 25 departemen",
+    "open_registry": "Buka Registri",
+    "read_more": "Baca selengkapnya",
+    "back_home": "Kembali ke titik masuk",
+    "all_departments": "Dua puluh lima departemen",
+    "send_message": "Kirim pesan",
+    "loading": "Memuat…",
+    "views_label": "Mata di pintu ini",
+    "live_views": "Tampilan langsung",
+    "today": "Hari ini",
+    "uniques": "Pengunjung unik",
+    "total": "Total tampilan",
+    "copyright": "© 2026 Maher · 2030B adalah karya berhak cipta milik Maher. Hak cipta dilindungi."
+  },
+  "nav": {
+    "search": "Cari",
+    "account": "Akun Anda",
+    "language": "Bahasa",
+    "theme": "Ganti tema",
+    "departments": "Departemen",
+    "levels": "Tingkat",
+    "audiences": "Audiens",
+    "project": "Proyek",
+    "about": "Tentang Maher",
+    "contact": "Kontak",
+    "registry": "Registri"
+  },
+  "home": {
+    "chip": "Titik Masuk",
+    "h1_a": "Dua puluh lima departemen",
+    "h1_b": "untuk peradaban di depan.",
+    "lead": "2030B adalah registri pendiri — tumpukan terkoordinasi dari departemen yang bertanggung jawab atas infrastruktur kritis keberadaan, pengetahuan, etika, waktu, ingatan, dan kelangsungan hidup. Total biaya operasi: $17,49 per hari per manusia.",
+    "stat_depts": "Departemen",
+    "stat_critical": "Tingkat Kritis",
+    "stat_daily": "Harian / orang",
+    "stat_anchor": "Jangkar: Al-Ḥaqq",
+    "levels_title": "Lima tingkat prioritas",
+    "levels_lead": "Departemen disusun berdasarkan konsekuensi peradaban. Departemen tingkat kritis melindungi keberadaan itu sendiri; tingkat Standar dan Rendah memelihara kesinambungan dan makna.",
+    "twentyfive": "Dua Puluh Lima",
+    "twentyfive_lead": "Klik departemen mana pun untuk membaca kartu identitasnya dan mandat lima detail dari Registri resmi.",
+    "audiences_title": "Pilih pintu yang cocok untuk Anda.",
+    "audiences_lead": "2030B melayani berbagai komunitas dalam berbagai bahasa. Buka halaman yang sesuai dengan diri Anda."
+  },
+  "about": {
+    "chip": "Pendiri",
+    "h1": "Maher.",
+    "lead": "Arsitek kerangka 2030B, standar WebBook, dan Departemen Ontologi. Pemegang hak cipta atas karya ini."
+  },
+  "contact": {
+    "chip": "Kontak",
+    "h1": "Hubungi 2030B.",
+    "lead": "Pertanyaan tentang sebuah departemen, standar WebBook, atau usulan kolaborasi. Maher membaca setiap pesan.",
+    "name": "Nama Anda",
+    "email": "Email",
+    "topic": "Topik",
+    "message": "Pesan",
+    "thanks": "Terima kasih — pesan Anda telah diterima."
+  },
+  "vision": {
+    "chip": "Maher · Visi $1Q",
+    "h1_a": "Bagaimana 2030B mencapai",
+    "h1_b": "ekonomi $1.000 triliun pertama.",
+    "quote": "Tidak ada yang mustahil. Hanya orang yang tak mampu. Dengan 2030B, hanya ada yang mampu.",
+    "stage1": "Jangkar",
+    "stage2": "Bersama",
+    "stage3": "Kepercayaan",
+    "stage4": "Kuadriliun"
+  },
+  "levels": {
+    "Critical": "Kritis",
+    "High": "Tinggi",
+    "Medium": "Menengah",
+    "Standard": "Standar",
+    "Low": "Rendah"
+  },
+  "audiences": {
+    "general": "Umum",
+    "researchers": "Peneliti",
+    "policymakers": "Pembuat kebijakan",
+    "investors": "Investor",
+    "builders": "Pembangun",
+    "educators": "Pendidik",
+    "students": "Pelajar",
+    "faith": "Iman",
+    "press": "Pers",
+    "communities": "Komunitas"
+  },
+  "errors": {
+    "404_h1": "404",
+    "404_lead": "Pintu ini tidak ada di registri."
+  }
+}

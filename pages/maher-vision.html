@@ -12,12 +12,21 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/animations.css" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased" data-i18n-page="maher-vision">
 
 <div data-shell></div>
 
 <main class="pt-28">
+  <section data-b-hero class="relative">
+    <div class="max-w-5xl mx-auto px-4 py-6">
+      <div class="b-hero-views-wrap" data-b-anim="fade-up" data-b-delay="200">
+        <span data-b-views data-b-views-hero data-b-views-page="auto" data-i18n-aria="common.live_views"></span>
+      </div>
+    </div>
+  </section>
 
   <!-- ===================== HERO ===================== -->
   <section class="relative overflow-hidden" data-b-block>
@@ -26,10 +35,10 @@
     <div class="absolute -bottom-32 -right-32 w-[34rem] h-[34rem] b-orb" style="--c1:#7c8df5;--c2:#86c5a0"></div>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 lg:py-28 relative">
-      <span class="b-chip"><i data-lucide="rocket" class="w-3.5 h-3.5"></i> Maher · The $1Q vision</span>
+      <span class="b-chip"><i data-lucide="rocket" class="w-3.5 h-3.5"></i> <span data-i18n="vision.chip">Maher · The $1Q vision</span></span>
       <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[1.02] mt-5 max-w-5xl">
-        How 2030B reaches the first<br>
-        <span class="b-grad-text">$1,000 trillion economy.</span>
+        <span data-i18n="vision.h1_a">How 2030B reaches the first</span><br>
+        <span class="b-grad-text" data-i18n="vision.h1_b">$1,000 trillion economy.</span>
       </h1>
       <p class="mt-6 max-w-3xl text-xl text-gold-300/85 leading-relaxed">
         Global GDP is measured in trillions. <strong class="text-amber-300">A quadrillion-dollar economy does not yet exist.</strong>
@@ -38,7 +47,7 @@
       </p>
 
       <blockquote class="mt-10 max-w-3xl border-l-4 pl-5 py-3" style="border-color:#fbbf24">
-        <p class="font-display text-2xl sm:text-3xl text-amber-200 leading-snug">
+        <p class="font-display text-2xl sm:text-3xl text-amber-200 leading-snug" data-i18n="vision.quote">
           “Nothing is impossible. Only incapable people. With 2030B, there are only capables.”
         </p>
         <footer class="mt-2 text-xs uppercase tracking-[0.25em] text-amber-200/55">— Maher</footer>
@@ -153,22 +162,22 @@
     <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4" data-b-stagger>
       <article class="b-glass rounded-2xl p-5">
         <p class="text-xs uppercase tracking-[0.2em] text-amber-200/55">Stage 1</p>
-        <h3 class="font-display text-xl font-bold mt-2">Anchor</h3>
+        <h3 class="font-display text-xl font-bold mt-2" data-i18n="vision.stage1">Anchor</h3>
         <p class="text-sm text-gold-300/70 mt-2 leading-relaxed">Ontology + Reality Verification publish the canonical registry and verification standards. The world has a shared reference.</p>
       </article>
       <article class="b-glass rounded-2xl p-5">
         <p class="text-xs uppercase tracking-[0.2em] text-amber-200/55">Stage 2</p>
-        <h3 class="font-display text-xl font-bold mt-2">Commons</h3>
+        <h3 class="font-display text-xl font-bold mt-2" data-i18n="vision.stage2">Commons</h3>
         <p class="text-sm text-gold-300/70 mt-2 leading-relaxed">Energy + Data Commons go live. Marginal cost of intelligence and energy drops; productive surface widens.</p>
       </article>
       <article class="b-glass rounded-2xl p-5">
         <p class="text-xs uppercase tracking-[0.2em] text-amber-200/55">Stage 3</p>
-        <h3 class="font-display text-xl font-bold mt-2">Trust</h3>
+        <h3 class="font-display text-xl font-bold mt-2" data-i18n="vision.stage3">Trust</h3>
         <p class="text-sm text-gold-300/70 mt-2 leading-relaxed">AI Alignment + Synthetic Empathy + Civic Trust re-price the trust premium. Synthetic agents become economic citizens.</p>
       </article>
       <article class="b-glass rounded-2xl p-5">
         <p class="text-xs uppercase tracking-[0.2em] text-amber-200/55">Stage 4</p>
-        <h3 class="font-display text-xl font-bold mt-2">Quadrillion</h3>
+        <h3 class="font-display text-xl font-bold mt-2" data-i18n="vision.stage4">Quadrillion</h3>
         <p class="text-sm text-gold-300/70 mt-2 leading-relaxed">Continuity + Risk + Defense lower the discount rate. Long-horizon investment compounds. The first $1Q economy emerges.</p>
       </article>
     </div>
@@ -207,6 +216,8 @@
 <script src="../js/megamenu.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/views.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/gsap-anim.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   const list = document.getElementById('tierList');

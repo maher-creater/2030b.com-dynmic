@@ -12,8 +12,10 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/animations.css" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased" data-i18n-page="registry">
 
 <div data-shell></div>
 
@@ -21,6 +23,9 @@
   <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
     <span class="b-chip"><i data-lucide="book-marked" class="w-3.5 h-3.5"></i> Official Registry</span>
     <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4 max-w-4xl">The <span class="b-grad-text">2030B Organizational Departments Registry</span>.</h1>
+      <div class="b-hero-views-wrap" data-b-anim="fade-up" data-b-delay="200">
+        <span data-b-views data-b-views-hero data-b-views-page="auto" data-i18n-aria="common.live_views"></span>
+      </div>
     <p class="mt-5 max-w-3xl text-gold-300/75">The canonical short table. Each row carries the department, its priority level, and its five key mandates — the working blueprint by which a department is judged.</p>
 
     <div class="mt-10 b-glass rounded-2xl p-3 sm:p-4 overflow-x-auto" data-b-anim>
@@ -49,6 +54,8 @@
 <script src="../js/megamenu.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/views.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/gsap-anim.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   const tb = document.getElementById('regBody');

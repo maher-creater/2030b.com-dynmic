@@ -37,8 +37,10 @@ html,body{background:#04030a;height:100%;margin:0;color:#f5e6b3}
 .fc-loader{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#04030a;z-index:2}
 .fc-loader[data-hidden]{display:none}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body>
+<body data-i18n-page="read-webbook-v2">
 
 <div class="fc-shell">
   <header class="fc-bar">
@@ -98,5 +100,7 @@ html,body{background:#04030a;height:100%;margin:0;color:#f5e6b3}
   if (window.lucide) try { lucide.createIcons(); } catch(e){}
 })();
 </script>
+<script src="../js/i18n.js"></script>
+<script src="../js/gsap-anim.js"></script>
 </body>
 </html>

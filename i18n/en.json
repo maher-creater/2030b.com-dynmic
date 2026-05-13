@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "lang": "en",
+    "name": "English",
+    "dir": "ltr",
+    "author": "Maher",
+    "year": "2026"
+  },
+  "common": {
+    "brand": "2030B",
+    "tagline": "The Entry Point",
+    "vision_cta": "$1Q vision",
+    "browse_all": "Browse all 25 departments",
+    "open_registry": "Open the Registry",
+    "read_more": "Read full",
+    "back_home": "Return to entry point",
+    "all_departments": "All twenty-five departments",
+    "send_message": "Send message",
+    "loading": "Loading…",
+    "views_label": "Eyes on this door",
+    "live_views": "Live views",
+    "today": "Today",
+    "uniques": "Unique visitors",
+    "total": "Total views",
+    "copyright": "© 2026 Maher · 2030B is a copyrighted work of Maher. All rights reserved."
+  },
+  "nav": {
+    "search": "Search",
+    "account": "Your account",
+    "language": "Language",
+    "theme": "Toggle theme",
+    "departments": "Departments",
+    "levels": "Levels",
+    "audiences": "Audiences",
+    "project": "Project",
+    "about": "About Maher",
+    "contact": "Contact",
+    "registry": "Registry"
+  },
+  "home": {
+    "chip": "The Entry Point",
+    "h1_a": "Twenty-five departments",
+    "h1_b": "for the civilization ahead.",
+    "lead": "2030B is the foundational registry — a coordinated stack of departments responsible for the critical infrastructure of being, knowing, ethics, time, memory, and survival. Total operating cost: $17.49 per day per human.",
+    "stat_depts": "Departments",
+    "stat_critical": "Critical level",
+    "stat_daily": "Daily / human",
+    "stat_anchor": "Anchor: Al-Ḥaqq",
+    "levels_title": "Five priority levels",
+    "levels_lead": "Departments are ordered by civilizational consequence. Critical-level departments protect existence itself; Standard and Low departments cultivate continuity and meaning.",
+    "twentyfive": "The Twenty-Five",
+    "twentyfive_lead": "Click any department to read its short identity card and its five-detail mandate from the official Registry.",
+    "audiences_title": "Pick the door that fits you.",
+    "audiences_lead": "2030B serves different communities in different languages. Open the landing page tailored to who you are."
+  },
+  "about": {
+    "chip": "Founder",
+    "h1": "Maher.",
+    "lead": "Architect of the 2030B framework, the WebBook standard, and the Ontology Department. Holder of the copyright on this work."
+  },
+  "contact": {
+    "chip": "Contact",
+    "h1": "Reach 2030B.",
+    "lead": "Questions about a department, the WebBook standard, or a proposal for collaboration. Maher reads every message.",
+    "name": "Your name",
+    "email": "Email",
+    "topic": "Topic",
+    "message": "Message",
+    "thanks": "Thank you — your message has been received."
+  },
+  "vision": {
+    "chip": "Maher · The $1Q vision",
+    "h1_a": "How 2030B reaches the first",
+    "h1_b": "$1,000 trillion economy.",
+    "quote": "Nothing is impossible. Only incapable people. With 2030B, there are only capables.",
+    "stage1": "Anchor",
+    "stage2": "Commons",
+    "stage3": "Trust",
+    "stage4": "Quadrillion"
+  },
+  "levels": {
+    "Critical": "Critical",
+    "High": "High",
+    "Medium": "Medium",
+    "Standard": "Standard",
+    "Low": "Low"
+  },
+  "audiences": {
+    "general": "General",
+    "researchers": "Researchers",
+    "policymakers": "Policymakers",
+    "investors": "Investors",
+    "builders": "Builders",
+    "educators": "Educators",
+    "students": "Students",
+    "faith": "Faith",
+    "press": "Press",
+    "communities": "Communities"
+  },
+  "errors": {
+    "404_h1": "404",
+    "404_lead": "This door is not in the registry."
+  }
+}

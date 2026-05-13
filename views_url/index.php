@@ -63,6 +63,30 @@ const SLUG_MAX_LEN   = 80;
 const TOP_LIMIT      = 50;
 const TIMESERIES_DAYS = 90;
 
+/*
+ * ──────────────────── TOKENS ────────────────────
+ * Two-tier token model:
+ *
+ *  1. CLIENT_TOKEN  — public, embedded in js/views.js. Marks a hit as coming
+ *     from the legitimate 2030B entry-point bundle. Required on POST /
+ *     ?hit=1 increments (read-only GETs are still anonymous). Rotate by
+ *     editing both this file and js/views.js together.
+ *
+ *  2. ADMIN_TOKEN   — private. Required to read ?stats=1 endpoints with full
+ *     timeseries / leaderboards. Anonymous reads only get the per-page
+ *     total (no leaderboard, no daily series).
+ *
+ * Tokens may be supplied via:
+ *     - query string ?token=...       (matches CLIENT_TOKEN)
+ *     - query string ?admin=...       (matches ADMIN_TOKEN)
+ *     - header     X-2030B-Token:     (matches CLIENT_TOKEN)
+ *     - header     X-2030B-Admin:     (matches ADMIN_TOKEN)
+ *     - header     Authorization: Bearer <CLIENT_TOKEN>
+ */
+const CLIENT_TOKEN   = 'b2030-public-9f3c2e7a4d1b8056';
+const ADMIN_TOKEN    = 'b2030-admin-3e7c91a85f4d2b0c1a6e8d4f72b09c5e';
+const REQUIRE_TOKEN  = true;   // if false, hits are accepted without a client token (legacy)
+
 /* ──────────────────── CORS / HEADERS ──────────────────── */
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
@@ -136,6 +160,49 @@ function clean_sid(?string $raw): string {
 
 function now_ts(): int { return time(); }
 function today_str(): string { return gmdate('Y-m-d'); }
+
+/* ──────────────────── TOKEN HELPERS ──────────────────── */
+function read_header(string $name): string {
+    // Apache: HTTP_X_2030B_TOKEN ; CGI variants
+    $key = 'HTTP_' . strtoupper(str_replace('-', '_', $name));
+    if (!empty($_SERVER[$key])) return (string)$_SERVER[$key];
+    if (function_exists('getallheaders')) {
+        foreach (getallheaders() as $k => $v) {
+            if (strcasecmp($k, $name) === 0) return (string)$v;
+        }
+    }
+    return '';
+}
+
+function presented_client_token(): string {
+    if (!empty($_GET['token']))  return (string)$_GET['token'];
+    if (!empty($_POST['token'])) return (string)$_POST['token'];
+    $h = read_header('X-2030B-Token');
+    if ($h !== '') return $h;
+    $auth = read_header('Authorization');
+    if (stripos($auth, 'Bearer ') === 0) return trim(substr($auth, 7));
+    return '';
+}
+
+function presented_admin_token(): string {
+    if (!empty($_GET['admin']))  return (string)$_GET['admin'];
+    if (!empty($_POST['admin'])) return (string)$_POST['admin'];
+    $h = read_header('X-2030B-Admin');
+    if ($h !== '') return $h;
+    return '';
+}
+
+function client_token_ok(): bool {
+    $t = presented_client_token();
+    if ($t === '') return false;
+    return hash_equals(CLIENT_TOKEN, $t) || hash_equals(ADMIN_TOKEN, $t);
+}
+
+function admin_token_ok(): bool {
+    $t = presented_admin_token();
+    if ($t === '') return false;
+    return hash_equals(ADMIN_TOKEN, $t);
+}
 
 /* ──────────────────── DB BOOT ──────────────────── */
 function db(): PDO {
@@ -347,8 +414,19 @@ $ref    = (string)($_GET['ref'] ?? ($_SERVER['HTTP_REFERER'] ?? ''));
 $iph    = ip_hash(client_ip());
 $pdo    = db();
 
-/* ── stats endpoints ── */
+/* ── stats endpoints (require admin token for full payload) ── */
 if (isset($_GET['stats'])) {
+    if (!admin_token_ok()) {
+        // Anonymous read of a single page is allowed (page total only); the
+        // top/leaderboard and full timeseries require the admin token.
+        if (!empty($_GET['page'])) {
+            out_json(array_merge(
+                ['ok' => true, 'bumped' => false, 'restricted' => true, 'ts' => now_ts()],
+                get_page_stats($pdo, $page)
+            ));
+        }
+        out_err('admin token required for global stats', 401);
+    }
     if (!empty($_GET['page'])) {
         out_json([
             'ok'         => true,
@@ -370,6 +448,10 @@ if (isset($_GET['stats'])) {
 $shouldIncrement = ($method === 'POST') || (!empty($_GET['hit']));
 
 if ($shouldIncrement) {
+    // Token check: legitimate 2030B traffic carries the client token.
+    if (REQUIRE_TOKEN && !client_token_ok()) {
+        out_err('invalid or missing token', 401);
+    }
     if (under_cooldown($pdo, $page, $sid, $iph)) {
         $stats = get_page_stats($pdo, $page);
         out_json(array_merge(['ok' => true, 'bumped' => false, 'cooldown' => true, 'ts' => now_ts()], $stats));
@@ -383,13 +465,21 @@ if (!empty($_GET['page'])) {
     out_json(array_merge(['ok' => true, 'bumped' => false, 'ts' => now_ts()], get_page_stats($pdo, $page)));
 }
 
-/* ── default landing → totals + top ── */
-out_json([
-    'ok'      => true,
-    'service' => '2030B Views Counter',
-    'author'  => 'Maher © 2026',
-    'endpoint'=> 'https://2030b.com/views_url/index.php',
-    'totals'  => totals($pdo),
-    'top'     => get_top_pages($pdo, 25),
+/* ── default landing → service banner; full totals/top only with admin token ── */
+$banner = [
+    'ok'       => true,
+    'service'  => '2030B Views Counter',
+    'author'   => 'Maher © 2026',
+    'endpoint' => 'https://2030b.com/views_url/index.php',
+    'auth'     => [
+        'client_token_required' => REQUIRE_TOKEN,
+        'admin_token_required_for_stats' => true,
+        'methods' => ['?token=…', 'X-2030B-Token: …', 'Authorization: Bearer …'],
+    ],
     'ts'      => now_ts(),
-]);
+];
+if (admin_token_ok()) {
+    $banner['totals'] = totals($pdo);
+    $banner['top']    = get_top_pages($pdo, 25);
+}
+out_json($banner);

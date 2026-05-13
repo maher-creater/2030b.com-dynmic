@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "lang": "tr",
+    "name": "Türkçe",
+    "dir": "ltr",
+    "author": "Maher",
+    "year": "2026"
+  },
+  "common": {
+    "brand": "2030B",
+    "tagline": "Giriş Noktası",
+    "vision_cta": "1Q$ vizyonu",
+    "browse_all": "25 departmanın tümüne göz at",
+    "open_registry": "Sicili aç",
+    "read_more": "Tamamını oku",
+    "back_home": "Giriş noktasına dön",
+    "all_departments": "Yirmi beş departmanın tümü",
+    "send_message": "Mesajı gönder",
+    "loading": "Yükleniyor…",
+    "views_label": "Bu kapıya bakanlar",
+    "live_views": "Anlık görüntüleme",
+    "today": "Bugün",
+    "uniques": "Tekil ziyaretçi",
+    "total": "Toplam görüntüleme",
+    "copyright": "© 2026 Maher · 2030B Maher'in telif hakkı saklı bir eseridir. Tüm hakları saklıdır."
+  },
+  "nav": {
+    "search": "Ara",
+    "account": "Hesabınız",
+    "language": "Dil",
+    "theme": "Temayı değiştir",
+    "departments": "Departmanlar",
+    "levels": "Seviyeler",
+    "audiences": "Kitleler",
+    "project": "Proje",
+    "about": "Maher hakkında",
+    "contact": "İletişim",
+    "registry": "Sicil"
+  },
+  "home": {
+    "chip": "Giriş Noktası",
+    "h1_a": "Yirmi beş departman",
+    "h1_b": "ileride gelen medeniyet için.",
+    "lead": "2030B kurucu sicildir — varoluş, bilme, etik, zaman, hafıza ve hayatta kalmanın kritik altyapısından sorumlu, koordine edilmiş bir departman yığını. Toplam işletme maliyeti: insan başına günlük 17,49 dolar.",
+    "stat_depts": "Departmanlar",
+    "stat_critical": "Kritik seviye",
+    "stat_daily": "Günlük / kişi",
+    "stat_anchor": "Çıpa: Al-Ḥaqq",
+    "levels_title": "Beş öncelik seviyesi",
+    "levels_lead": "Departmanlar medeniyet açısından önemine göre sıralanır. Kritik seviye departmanlar varoluşu korur; Standart ve Düşük seviye departmanlar süreklilik ve anlamı besler.",
+    "twentyfive": "Yirmi Beş",
+    "twentyfive_lead": "Resmi Sicil'den kimlik kartını ve beş maddelik görev tanımını okumak için herhangi bir departmana tıklayın.",
+    "audiences_title": "Size uygun kapıyı seçin.",
+    "audiences_lead": "2030B farklı toplulukların farklı dillerde hizmetindedir. Size özel sayfayı açın."
+  },
+  "about": {
+    "chip": "Kurucu",
+    "h1": "Maher.",
+    "lead": "2030B çerçevesinin, WebBook standardının ve Ontoloji Departmanının mimarı. Bu eserin telif hakkı sahibi."
+  },
+  "contact": {
+    "chip": "İletişim",
+    "h1": "2030B'ye ulaşın.",
+    "lead": "Bir departman, WebBook standardı veya işbirliği önerisi hakkında sorularınız. Maher her mesajı okur.",
+    "name": "Adınız",
+    "email": "E-posta",
+    "topic": "Konu",
+    "message": "Mesaj",
+    "thanks": "Teşekkürler — mesajınız alındı."
+  },
+  "vision": {
+    "chip": "Maher · 1Q$ vizyonu",
+    "h1_a": "2030B nasıl ilk",
+    "h1_b": "1.000 trilyon dolarlık ekonomiye ulaşır.",
+    "quote": "Hiçbir şey imkânsız değildir. Sadece beceriksiz insanlar vardır. 2030B ile yalnızca yetenekliler var.",
+    "stage1": "Çıpa",
+    "stage2": "Müşterekler",
+    "stage3": "Güven",
+    "stage4": "Katrilyon"
+  },
+  "levels": {
+    "Critical": "Kritik",
+    "High": "Yüksek",
+    "Medium": "Orta",
+    "Standard": "Standart",
+    "Low": "Düşük"
+  },
+  "audiences": {
+    "general": "Genel",
+    "researchers": "Araştırmacılar",
+    "policymakers": "Politika yapıcılar",
+    "investors": "Yatırımcılar",
+    "builders": "İnşa edenler",
+    "educators": "Eğitimciler",
+    "students": "Öğrenciler",
+    "faith": "İnanç",
+    "press": "Basın",
+    "communities": "Topluluklar"
+  },
+  "errors": {
+    "404_h1": "404",
+    "404_lead": "Bu kapı sicilde değil."
+  }
+}

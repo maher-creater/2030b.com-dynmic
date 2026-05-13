@@ -12,8 +12,10 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/animations.css" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased">
+<body data-prefix="../" class="bg-ink-950 text-gold-300 antialiased" data-i18n-page="departments">
 
 <div data-shell></div>
 
@@ -21,6 +23,9 @@
   <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16" data-b-hero data-b-block>
     <span class="b-chip"><i data-lucide="layout-grid" class="w-3.5 h-3.5"></i> The Sixteen</span>
     <h1 class="font-display text-5xl sm:text-6xl font-bold mt-4 max-w-4xl">All <span class="b-grad-text">sixteen departments</span> of the 2030B stack.</h1>
+      <div class="b-hero-views-wrap" data-b-anim="fade-up" data-b-delay="200">
+        <span data-b-views data-b-views-hero data-b-views-page="auto" data-i18n-aria="common.live_views"></span>
+      </div>
     <p class="mt-5 max-w-2xl text-gold-300/75">Each card opens an identity sheet. Each WebBook icon opens the canonical charter.</p>
 
     <div class="mt-8 flex flex-wrap items-center gap-2" data-b-anim>
@@ -44,6 +49,8 @@
 <script src="../js/megamenu.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/views.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/gsap-anim.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   if (!window.B_REGISTRY || !window.B_RENDER) return;

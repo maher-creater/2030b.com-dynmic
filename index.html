@@ -12,8 +12,10 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/animations.css" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-ink-950 text-gold-300 antialiased" data-prefix="">
+<body class="bg-ink-950 text-gold-300 antialiased" data-prefix="" data-i18n-page="home">
 
 <div data-shell></div>
 
@@ -26,28 +28,31 @@
     <div class="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] b-orb" style="--c1:#7c8df5;--c2:#86c5a0"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-32 relative">
-      <span class="b-chip"><i data-lucide="compass" class="w-3.5 h-3.5"></i> The Entry Point</span>
+      <span class="b-chip"><i data-lucide="compass" class="w-3.5 h-3.5"></i> <span data-i18n="home.chip">The Entry Point</span></span>
       <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-bold leading-[1.02] mt-5 max-w-5xl">
-        <span class="b-hero-headline-row"><span class="b-hero-headline-inner">Twenty-five departments</span></span>
-        <span class="b-hero-headline-row"><span class="b-hero-headline-inner b-grad-text">for the civilization ahead.</span></span>
+        <span class="b-hero-headline-row"><span class="b-hero-headline-inner" data-i18n="home.h1_a">Twenty-five departments</span></span>
+        <span class="b-hero-headline-row"><span class="b-hero-headline-inner b-grad-text" data-i18n="home.h1_b">for the civilization ahead.</span></span>
       </h1>
-      <p class="mt-6 max-w-2xl text-lg text-gold-300/75 leading-relaxed b-hero-sub">
+      <div class="b-hero-views-wrap" data-b-anim="fade-up" data-b-delay="200">
+        <span data-b-views data-b-views-hero data-b-views-page="auto" data-i18n-aria="common.live_views"></span>
+      </div>
+      <p class="mt-6 max-w-2xl text-lg text-gold-300/75 leading-relaxed b-hero-sub" data-i18n="home.lead">
         2030B is the foundational registry — a coordinated stack of departments responsible for the
         critical infrastructure of being, knowing, ethics, time, memory, and survival. Total operating
-        cost: <strong class="text-amber-300">$17.49 per day per human</strong>.
+        cost: $17.49 per day per human.
       </p>
       <div class="mt-8 flex flex-wrap items-center gap-3 b-hero-actions">
-        <a href="pages/departments.html" class="b-btn-primary"><i data-lucide="layout-grid" class="w-4 h-4"></i> Browse all 25 departments</a>
-        <a href="pages/registry.html" class="b-btn-ghost"><i data-lucide="book-marked" class="w-4 h-4"></i> Open the Registry</a>
-        <a href="pages/maher-vision.html" class="b-btn-ghost"><i data-lucide="rocket" class="w-4 h-4"></i> The $1Q vision</a>
+        <a href="pages/departments.html" class="b-btn-primary"><i data-lucide="layout-grid" class="w-4 h-4"></i> <span data-i18n="common.browse_all">Browse all 25 departments</span></a>
+        <a href="pages/registry.html" class="b-btn-ghost"><i data-lucide="book-marked" class="w-4 h-4"></i> <span data-i18n="common.open_registry">Open the Registry</span></a>
+        <a href="pages/maher-vision.html" class="b-btn-ghost"><i data-lucide="rocket" class="w-4 h-4"></i> <span data-i18n="common.vision_cta">The $1Q vision</span></a>
       </div>
 
       <!-- Stats strip -->
       <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl" data-b-stagger>
-        <div class="b-stat"><span class="b-stat-num">25</span><span class="b-stat-label">Departments</span></div>
-        <div class="b-stat"><span class="b-stat-num">7</span><span class="b-stat-label">Critical level</span></div>
-        <div class="b-stat"><span class="b-stat-num">$17.49</span><span class="b-stat-label">Daily / human</span></div>
-        <div class="b-stat"><span class="b-stat-num">1</span><span class="b-stat-label">Anchor: <em>Al-Ḥaqq</em></span></div>
+        <div class="b-stat"><span class="b-stat-num" data-b-count="25">25</span><span class="b-stat-label" data-i18n="home.stat_depts">Departments</span></div>
+        <div class="b-stat"><span class="b-stat-num" data-b-count="7">7</span><span class="b-stat-label" data-i18n="home.stat_critical">Critical level</span></div>
+        <div class="b-stat"><span class="b-stat-num">$17.49</span><span class="b-stat-label" data-i18n="home.stat_daily">Daily / human</span></div>
+        <div class="b-stat"><span class="b-stat-num">1</span><span class="b-stat-label" data-i18n="home.stat_anchor">Anchor: Al-Ḥaqq</span></div>
       </div>
     </div>
   </section>
@@ -56,17 +61,17 @@
   <section id="levels-section" class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
     <div class="flex items-end justify-between gap-4 mb-8" data-b-anim>
       <div>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold">Five priority levels</h2>
-        <p class="text-gold-300/70 mt-2 max-w-2xl">Departments are ordered by civilizational consequence. Critical-level departments protect existence itself; Standard and Low departments cultivate continuity and meaning.</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold" data-i18n="home.levels_title">Five priority levels</h2>
+        <p class="text-gold-300/70 mt-2 max-w-2xl" data-i18n="home.levels_lead">Departments are ordered by civilizational consequence. Critical-level departments protect existence itself; Standard and Low departments cultivate continuity and meaning.</p>
       </div>
       <a href="pages/levels.html" class="b-link hidden sm:inline-flex">Read the framework <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-5 gap-3" data-b-stagger>
-      <div class="b-level-card" style="--lc:#f5a3c0"><span class="b-level-dot"></span><strong>Critical</strong><span>7 departments</span></div>
-      <div class="b-level-card" style="--lc:#fbbf24"><span class="b-level-dot"></span><strong>High</strong><span>6 departments</span></div>
-      <div class="b-level-card" style="--lc:#86c5a0"><span class="b-level-dot"></span><strong>Medium</strong><span>5 departments</span></div>
-      <div class="b-level-card" style="--lc:#7c8df5"><span class="b-level-dot"></span><strong>Standard</strong><span>4 departments</span></div>
-      <div class="b-level-card" style="--lc:#5fc1d4"><span class="b-level-dot"></span><strong>Low</strong><span>3 departments</span></div>
+      <div class="b-level-card" style="--lc:#f5a3c0"><span class="b-level-dot"></span><strong data-i18n="levels.Critical">Critical</strong><span>7 departments</span></div>
+      <div class="b-level-card" style="--lc:#fbbf24"><span class="b-level-dot"></span><strong data-i18n="levels.High">High</strong><span>6 departments</span></div>
+      <div class="b-level-card" style="--lc:#86c5a0"><span class="b-level-dot"></span><strong data-i18n="levels.Medium">Medium</strong><span>5 departments</span></div>
+      <div class="b-level-card" style="--lc:#7c8df5"><span class="b-level-dot"></span><strong data-i18n="levels.Standard">Standard</strong><span>4 departments</span></div>
+      <div class="b-level-card" style="--lc:#5fc1d4"><span class="b-level-dot"></span><strong data-i18n="levels.Low">Low</strong><span>3 departments</span></div>
     </div>
   </section>
 
@@ -74,8 +79,8 @@
   <section id="departments-section" class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
     <div class="flex items-end justify-between gap-4 mb-8" data-b-anim>
       <div>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold">The Twenty-Five</h2>
-        <p class="text-gold-300/70 mt-2 max-w-2xl">Click any department to read its short identity card and its five-detail mandate from the official Registry.</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold" data-i18n="home.twentyfive">The Twenty-Five</h2>
+        <p class="text-gold-300/70 mt-2 max-w-2xl" data-i18n="home.twentyfive_lead">Click any department to read its short identity card and its five-detail mandate from the official Registry.</p>
       </div>
       <div class="hidden sm:flex items-center gap-2">
         <button class="b-filter" data-filter="all" data-active>All</button>
@@ -93,19 +98,19 @@
   <section id="audiences-section" class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
     <div class="b-glass rounded-3xl p-6 sm:p-10" data-b-anim>
       <span class="b-chip"><i data-lucide="users" class="w-3.5 h-3.5"></i> Ten audiences</span>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold mt-3">Pick the door that fits you.</h2>
-      <p class="text-gold-300/70 mt-2 max-w-2xl">2030B serves different communities in different languages. Open the landing page tailored to who you are.</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold mt-3" data-i18n="home.audiences_title">Pick the door that fits you.</h2>
+      <p class="text-gold-300/70 mt-2 max-w-2xl" data-i18n="home.audiences_lead">2030B serves different communities in different languages. Open the landing page tailored to who you are.</p>
       <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-5 gap-3" data-b-stagger>
-        <a href="pages/for-general.html"     class="b-level-card" style="--lc:#fbbf24"><strong>General</strong><span>Curious humans</span></a>
-        <a href="pages/for-researchers.html" class="b-level-card" style="--lc:#d4a857"><strong>Researchers</strong><span>Scientists & academics</span></a>
-        <a href="pages/for-policymakers.html" class="b-level-card" style="--lc:#f5a3c0"><strong>Policymakers</strong><span>States & multilaterals</span></a>
-        <a href="pages/for-investors.html"   class="b-level-card" style="--lc:#86c5a0"><strong>Investors</strong><span>Capital allocators</span></a>
-        <a href="pages/for-builders.html"    class="b-level-card" style="--lc:#7c8df5"><strong>Builders</strong><span>Engineers & founders</span></a>
-        <a href="pages/for-educators.html"   class="b-level-card" style="--lc:#5fc1d4"><strong>Educators</strong><span>Teachers & deans</span></a>
-        <a href="pages/for-students.html"    class="b-level-card" style="--lc:#fbbf24"><strong>Students</strong><span>Learners worldwide</span></a>
-        <a href="pages/for-faith.html"       class="b-level-card" style="--lc:#d4a857"><strong>Faith</strong><span>Religious communities</span></a>
-        <a href="pages/for-press.html"       class="b-level-card" style="--lc:#f5a3c0"><strong>Press</strong><span>Journalists & analysts</span></a>
-        <a href="pages/for-communities.html" class="b-level-card" style="--lc:#86c5a0"><strong>Communities</strong><span>Local & cultural groups</span></a>
+        <a href="pages/for-general.html"     class="b-level-card" style="--lc:#fbbf24"><strong data-i18n="audiences.general">General</strong><span>Curious humans</span></a>
+        <a href="pages/for-researchers.html" class="b-level-card" style="--lc:#d4a857"><strong data-i18n="audiences.researchers">Researchers</strong><span>Scientists & academics</span></a>
+        <a href="pages/for-policymakers.html" class="b-level-card" style="--lc:#f5a3c0"><strong data-i18n="audiences.policymakers">Policymakers</strong><span>States & multilaterals</span></a>
+        <a href="pages/for-investors.html"   class="b-level-card" style="--lc:#86c5a0"><strong data-i18n="audiences.investors">Investors</strong><span>Capital allocators</span></a>
+        <a href="pages/for-builders.html"    class="b-level-card" style="--lc:#7c8df5"><strong data-i18n="audiences.builders">Builders</strong><span>Engineers & founders</span></a>
+        <a href="pages/for-educators.html"   class="b-level-card" style="--lc:#5fc1d4"><strong data-i18n="audiences.educators">Educators</strong><span>Teachers & deans</span></a>
+        <a href="pages/for-students.html"    class="b-level-card" style="--lc:#fbbf24"><strong data-i18n="audiences.students">Students</strong><span>Learners worldwide</span></a>
+        <a href="pages/for-faith.html"       class="b-level-card" style="--lc:#d4a857"><strong data-i18n="audiences.faith">Faith</strong><span>Religious communities</span></a>
+        <a href="pages/for-press.html"       class="b-level-card" style="--lc:#f5a3c0"><strong data-i18n="audiences.press">Press</strong><span>Journalists & analysts</span></a>
+        <a href="pages/for-communities.html" class="b-level-card" style="--lc:#86c5a0"><strong data-i18n="audiences.communities">Communities</strong><span>Local & cultural groups</span></a>
       </div>
     </div>
   </section>
@@ -147,5 +152,7 @@
 <script src="js/megamenu.js"></script>
 <script src="js/main.js"></script>
 <script src="js/views.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/gsap-anim.js"></script>
 </body>
 </html>
